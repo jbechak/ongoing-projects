@@ -1,0 +1,35 @@
+
+                                      Test
+                                Level 3 - Medium
+
+Look through the word search puzzle and find all of the words from the word list.
+The words can be found going from left to right, up to down, diagonally, or
+backwards in any of these directions.
+
+                  S  R  W  K  G  O  M  C  T  J  G  B  C  R  M  
+                  U  Q  V  M  A  N  Q  O  L  L  U  O  Y  I  J  
+                  R  E  G  O  X  Y  I  L  P  B  D  W  C  J  K  
+                  F  D  E  K  C  K  A  N  D  U  Y  L  L  J  P  
+                  I  D  Y  S  J  B  S  K  N  D  B  I  I  O  J  
+                  N  T  D  U  T  I  B  S  I  U  B  N  N  V  D  
+                  G  R  N  O  N  O  K  A  R  N  R  G  G  Y  Y  
+                  W  C  O  N  F  A  R  R  S  G  G  G  D  F  R  
+                  P  F  E  Q  T  L  O  U  N  E  K  Y  N  N  T  
+                  M  T  G  I  R  W  O  I  L  Q  B  A  N  A  W  
+                  C  D  N  N  I  E  M  G  A  L  H  A  U  Y  L  
+                  K  G  V  N  I  M  C  S  C  P  O  O  L  D  N  
+                  H  Y  G  P  I  I  W  C  R  Q  C  W  X  L  J  
+                  Q  J  N  W  U  T  K  F  O  X  K  D  W  R  H  
+                  D  X  S  U  J  Z  L  S  S  S  E  B  O  D  F  
+                  P  I  N  G  P  O  N  G  S  Y  Y  B  L  Z  X  
+                  K  I  C  K  B  A  L  L  E  S  D  F  H  O  Z  
+
+
+                                  List of words
+
+SOCCER              FOOTBALL            SWIMMING            BASEBALL            
+RUNNING             ROWING              HOCKEY              SKATING             
+LACROSSE            TENNIS              PING PONG           BASKETBALL          
+KICKBALL            KAYAKING            SKIING              BOWLING             
+GOLF                VOLLEYBALL          SURFING             CYCLING             
+

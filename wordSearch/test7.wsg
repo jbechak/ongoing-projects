@@ -1,0 +1,33 @@
+
+                                      Test
+                                Level 3 - Medium
+
+Look through the word search puzzle and find all of the words from the word list.
+The words can be found going from left to right, up to down, diagonally, or
+backwards in any of these directions.
+
+            H  Y  T  A  B  E  A  A  H  E  P  U  O  L  A  T  N  A  C  
+            O  P  I  E  Q  E  N  I  K  H  E  Z  H  L  P  A  W  E  Y  
+            N  B  U  L  Y  Q  A  Y  R  P  A  W  Y  S  P  W  F  D  R  
+            E  K  R  P  A  B  N  J  R  Z  C  C  A  R  S  E  C  D  R  
+            Y  E  F  P  B  O  A  O  N  R  H  Z  I  M  M  K  G  F  E  
+            D  D  N  A  S  L  B  F  L  E  E  C  U  M  A  D  Q  T  B  
+            E  E  O  K  L  P  U  L  E  E  O  B  I  W  D  N  M  Z  P  
+            W  Z  G  Z  H  C  L  E  Q  T  M  S  W  W  H  W  G  C  S  
+            M  A  A  N  N  H  X  U  B  B  X  R  Z  A  I  V  Q  O  A  
+            E  Q  R  Q  A  A  O  G  M  E  G  K  E  U  R  K  O  Q  R  
+            L  Q  D  B  E  R  J  G  Z  V  R  C  P  T  J  T  D  W  Z  
+            O  H  P  E  A  R  O  F  I  G  M  R  W  G  A  T  S  P  M  
+            N  U  R  B  W  E  P  A  R  G  J  R  Y  V  K  W  G  I  Q  
+            Y  P  I  N  E  A  P  P  L  E  H  D  K  L  G  I  G  T  M  
+            N  F  O  N  E  C  T  A  R  I  N  E  Q  I  T  U  H  W  Y  
+
+
+                                  List of words
+
+APPLE               BANANA              ORANGE              GRAPE               
+DRAGON FRUIT        BLUEBERRY           STRAWBERRY          PEAR                
+PLUM                PEACH               MANGO               KIWI                
+APRICOT             NECTARINE           WATERMELON          CANTALOUPE          
+PINEAPPLE           LYCHEE              RASPBERRY           HONEYDEW MELON      
+

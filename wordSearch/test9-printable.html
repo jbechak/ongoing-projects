@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+        <style>
+            body { background-color: white; }
+            h1 { color: black; font-family: Comic Sans MS, Lobster, sans serif; font-size: 5vw; }
+            h2 { font-size: 3vw; white-space: nowrap; margin-top: 1vw; margin-bottom: -1vw; }
+            h3 { font-size: 2vw; }
+            p { font-size: 2vw; line-height: 2vw; }
+            hr { color: black; background-color: black; height: .3vw; margin-top 0vw; margin-bottom: 0vw; }
+            ul.no-bullets { list-style-type: none; }
+            .title { margin-top: 0vw; margin-bottom: 0vw; }
+            .subtitle { margin-bottom: 0vw !important; }
+            .difficulty { font-family: sans-serif; color: black; font-size: 3vw; }
+            .table { margin-top: 4vw; }
+            .word-list { column-count: 4; margin-bottom: 1vw; }
+            .instructions { color: black; font-family: sans-serif; font-size: 2vw; margin-top: 3vw !important; margin-bottom: -2vw; }
+            .word-list-header { font-size: 4vw; }
+
+            #puzzle { width: fit-content; height: fit-content; font-family: monospace; font-size: 3vw; border-color: black; border-width: .5vw;
+            border-style: solid; border-radius: .5em; padding: 0vw 1.5vw 2vw 1.5vw; margin: 5vw auto 5vw auto; margin-top: 5vw; }
+
+            #word-list { padding-bottom: 0vw; }
+        </style>
+    </head><div class="container-fluid">
+        <body>
+            <div class="title">
+                <h1 class="text-center">Test</h1>
+            </div>
+
+            <div class="subtitle">
+                <h2 class="text-center difficulty">Level 1 - Easy</h2>
+            </div>            <hr>            <div class="instructions">
+                <p class="text-center">Look through the word search puzzle and find all of the words from the word list.</p>
+                <p class="text-center">The words can be found going from left to right, up to down, diagonally, or</p>
+                <p class="text-center">backwards in any of these directions.</p>
+            </div><div id="puzzle"><h2 class="text-center">G  G  O  E  B  B  G  N  I  L  C  Y  C  O  U  F  V  Y  </h2>
+<h2 class="text-center">N  X  W  Q  S  A  G  X  K  O  D  M  Q  R  F  L  O  C  </h2>
+<h2 class="text-center">I  O  J  L  O  S  L  N  E  G  Z  W  B  A  R  O  L  I  </h2>
+<h2 class="text-center">L  J  J  L  C  K  Z  X  I  R  V  M  K  K  G  G  L  E  </h2>
+<h2 class="text-center">W  N  E  A  C  E  L  P  H  K  Z  Y  O  U  N  F  E  E  </h2>
+<h2 class="text-center">O  A  G  B  E  T  C  Y  K  U  A  S  U  H  U  W  Y  M  </h2>
+<h2 class="text-center">B  T  V  T  R  B  I  N  X  C  M  Y  I  W  D  P  B  E  </h2>
+<h2 class="text-center">B  B  W  O  W  A  S  Y  L  U  E  U  A  N  J  E  A  A  </h2>
+<h2 class="text-center">G  A  V  O  U  L  A  G  D  H  N  H  K  K  N  I  L  N  </h2>
+<h2 class="text-center">N  J  S  F  W  L  M  G  L  A  C  R  O  S  S  E  L  A  </h2>
+<h2 class="text-center">I  Y  C  E  I  G  N  I  T  A  K  S  I  U  H  K  T  O  </h2>
+<h2 class="text-center">N  P  E  S  B  I  T  D  K  S  F  D  K  R  Q  I  A  B  </h2>
+<h2 class="text-center">N  K  C  K  W  A  J  U  K  L  B  G  U  F  Y  C  N  H  </h2>
+<h2 class="text-center">U  C  N  O  C  V  L  I  Z  H  L  K  Y  I  C  K  Z  V  </h2>
+<h2 class="text-center">R  S  R  L  G  O  I  L  K  W  N  M  X  N  R  B  N  E  </h2>
+<h2 class="text-center">L  C  H  Q  L  N  H  N  T  Q  A  X  K  G  C  A  P  X  </h2>
+<h2 class="text-center">B  V  S  V  G  N  I  M  M  I  W  S  G  S  Y  L  G  M  </h2>
+<h2 class="text-center">F  R  D  C  Q  P  I  N  G  P  O  N  G  O  I  L  S  X  </h2>
+</div>
+            <hr>
+            <h1 class="text-center word-list-header">List of words</h1>
+            <div class="table">
+                <h3><ul class="no-bullets word-list"><li>SOCCER</li><li>FOOTBALL</li><li>SWIMMING</li><li>BASEBALL</li></ul>
+<ul class="no-bullets word-list"><li>RUNNING</li><li>ROWING</li><li>HOCKEY</li><li>SKATING</li></ul>
+<ul class="no-bullets word-list"><li>LACROSSE</li><li>TENNIS</li><li>PING PONG</li><li>BASKETBALL</li></ul>
+<ul class="no-bullets word-list"><li>KICKBALL</li><li>KAYAKING</li><li>SKIING</li><li>BOWLING</li></ul>
+<ul class="no-bullets word-list"><li>GOLF</li><li>VOLLEYBALL</li><li>SURFING</li><li>CYCLING</li></ul>
+<ul class="no-bullets word-list">                    </ul>
+                </h3>
+            </div>
+        </body>
+    </div>
+</html>

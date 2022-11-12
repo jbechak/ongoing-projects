@@ -1,0 +1,4 @@
+red blue yellow green brown
+turquoise purple orange black white
+gold silver tan beige indigo
+maroon pink cyan gray

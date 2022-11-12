@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crossword</title>
+    <style>
+
+        h1 {
+            font-family: Comic Sans MS, Helvetica;
+            font-style: bold;
+            font-size: 5vw;
+            margin-top: 5vw;
+            margin-bottom: 4vw;
+            text-align: center;
+            }
+
+        table {
+            width: fit-content;
+            border: .6vw solid black;
+            border-radius: 5%;
+            padding: 3vw;
+            margin-left: auto;
+            margin-right: auto;
+            border-spacing: 0vw;
+            }
+
+        tr {
+            /*border: .1vw solid black;*/
+            height: 3vw;
+            font-family: sans-serif, monospace;
+            font-size: 3vw;
+        }
+
+        td {
+            /*border: .1vw solid black;*/
+            width: 3vw;
+            font-size: 1vw;
+            vertical-align: top;
+        }
+
+        .outside {
+            border: none;
+        }
+
+        .no-bottom-border {
+            border-bottom: none;
+        
+        }
+
+        .no-right-border {
+            border-right: none;
+        } 
+
+        .left-border {
+            border-left: .2vw solid black;
+        }
+
+        .bottom-border {
+            border-bottom: .2vw solid black;
+        }
+
+        .right-border {
+            border-right: .2vw solid black;
+        }
+
+        .top-border {
+            border-top: .2vw solid black;
+        }
+       
+
+    </style>
+</head>
+<body>
+<div>
+    <h1>Crossword Puzzle</h1>
+</div><table>
+<tr>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border top-border ">1</td>
+<td class ="left-border bottom-border top-border "></td>
+<td class ="left-border bottom-border top-border ">2</td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class ="left-border bottom-border ">3</td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border ">4</td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border right-border"></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class ="left-border bottom-border top-border ">5</td>
+<td class ="left-border "></td>
+<td class ="left-border bottom-border top-border ">6</td>
+<td class ="left-border "></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="left-border bottom-border ">7</td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="left-border bottom-border ">8</td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border ">9</td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border right-border"></td>
+<td class =""></td>
+<td class ="bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class ="left-border bottom-border ">10</td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border ">11</td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border right-border"></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="left-border bottom-border top-border ">12</td>
+<td class ="left-border bottom-border "></td>
+<td class =""></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border ">13</td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border right-border"></td>
+<td class =""></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border top-border ">14</td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+</tr>
+<tr>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class ="bottom-border "></td>
+<td class ="bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="bottom-border "></td>
+</tr>
+<tr>
+<td class ="left-border bottom-border ">15</td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border right-border"></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border ">16</td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border bottom-border right-border"></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+</tr>
+<tr>
+<td class =""></td>
+<td class =""></td>
+<td class ="left-border bottom-border "></td>
+<td class ="left-border "></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+<td class =""></td>
+</tr>
+</table>
+
+ACROSS:
+1.  big animal
+3.  2
+7.  meow meow
+8.  display device for a computer
+10.  visual geographic layout on paper
+11.  flying disc
+13.  machine for washing dishes
+15.  big kind of spikey fruit
+16.  musical instrument
+
+DOWN:
+2.  string instrument
+4.  something that tells directions
+5.  little feller
+6.  something you wear on your feet
+9.  running machine
+11.  they bloom and come in different colors
+12.  it's for breakfast
+14.  yellow fruit
+</body>
+</html>
+

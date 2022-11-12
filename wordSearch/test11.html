@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+        <style>
+            body { background-color: #FEFE80; }
+            h1 { color: #EE0000; font-family: Comic Sans MS, Lobster, sans serif; font-size: 5vw; }
+            h2 { font-size: 3vw; white-space: nowrap; margin-top 1vw; margin-bottom: -1vw; }
+            h3 { font-size: 2vw; }
+            p { font-size: 2vw; line-height: 2vw; }
+            hr { color: black; background-color: black; height: .3vw; margin-top: 0vw; margin-bottom: 0vw; }
+            ul.no-bullets { list-style-type: none; }
+            .title { margin-top: 0vw; margin-bottom: 0vw; }
+            .subtitle { margin-bottom: 0vw !important; 
+            .difficulty { font-family: sans-serif; color: #0000FF; font-size: 3vw; }
+            .table { margin-top: 4vw; }
+            .word-list { column-count: 4; margin-bottom: 1vw; }
+            .instructions { color: #DD0000; font-family: sans-serif; font-size: 2vw; margin-top: 3vw !important; margin-bottom: -2vw; }
+            .word-list-header { font-size: 4vw; }
+
+            #puzzle { width: fit-content; height: fit-content; font-family: monospace; font-size: 3vw; background-color: beige; border-color: #CCAACC; border-width: 1vw;
+            border-style: outset; border-radius: .5em; padding: 0vw 1.5vw 2vw 1.5vw; margin: 5vw auto 5vw auto; }
+            #word-list { padding-bottom: 0vw; }
+        </style>
+    </head><div class="container-fluid">
+        <body>
+            <div class="title">
+                <h1 class="text-center">Test</h1>
+            </div>
+
+            <div class="subtitle">
+                <h2 class="text-center difficulty">Level 1 - Easy</h2>
+            </div>            <hr>            <div class="instructions">
+                <p class="text-center">Look through the word search puzzle and find all of the words from the word list.</p>
+                <p class="text-center">The words can be found going from left to right, up to down, diagonally, or</p>
+                <p class="text-center">backwards in any of these directions.</p>
+            </div><div id="puzzle"><h2 class="text-center">K  I  X  F  F  F  L  E  H  S  K  O  O  B  E  S  </h2>
+<h2 class="text-center">K  I  B  O  P  O  E  J  H  T  O  I  U  Y  E  H  </h2>
+<h2 class="text-center">V  K  V  I  K  X  R  N  K  B  D  C  K  G  B  O  </h2>
+<h2 class="text-center">I  K  A  J  X  E  Y  F  A  Q  D  M  C  P  S  V  </h2>
+<h2 class="text-center">X  N  R  H  H  D  L  Y  P  L  F  V  Q  E  I  E  </h2>
+<h2 class="text-center">O  L  Z  T  O  O  R  E  T  U  P  M  O  C  R  L  </h2>
+<h2 class="text-center">R  J  A  S  W  R  Q  A  B  R  J  R  E  K  F  W  </h2>
+<h2 class="text-center">C  E  V  E  A  B  U  I  Z  C  A  A  I  T  Y  V  </h2>
+<h2 class="text-center">W  C  R  N  A  M  C  A  F  I  S  V  S  A  M  V  </h2>
+<h2 class="text-center">K  A  O  L  G  Y  T  N  S  T  W  G  E  Z  O  C  </h2>
+<h2 class="text-center">H  T  L  U  C  R  S  S  E  O  D  A  J  L  N  U  </h2>
+<h2 class="text-center">T  E  U  L  N  A  C  R  I  H  N  T  J  E  O  P  </h2>
+<h2 class="text-center">T  A  E  G  O  T  N  M  P  R  C  I  Z  S  R  C  </h2>
+<h2 class="text-center">H  F  B  D  M  I  R  J  H  L  H  T  D  L  T  A  </h2>
+<h2 class="text-center">K  W  S  L  N  U  K  Y  O  P  Y  C  I  T  S  K  </h2>
+<h2 class="text-center">K  P  Q  D  E  G  A  B  N  A  E  B  S  K  A  E  </h2>
+<h2 class="text-center">P  I  G  E  O  N  N  E  E  W  O  L  L  A  H  F  </h2>
+<h2 class="text-center">N  E  L  A  Q  U  A  R  I  U  M  X  S  J  H  J  </h2>
+</div>
+            <hr>
+            <h1 class="text-center word-list-header">List of words</h1>
+            <div class="table">
+                <h3><ul class="no-bullets word-list"><li>CHRISTMAS</li><li>HALLOWEEN</li><li>EASTER</li><li>FRISBEE</li></ul>
+<ul class="no-bullets word-list"><li>WIZARD</li><li>CAT</li><li>DINOSAUR</li><li>BICYCLE</li></ul>
+<ul class="no-bullets word-list"><li>PIANO</li><li>GUITAR</li><li>SHOVEL</li><li>COMPUTER</li></ul>
+<ul class="no-bullets word-list"><li>CALCULATOR</li><li>FLOWER</li><li>AIRPLANE</li><li>KITCHEN</li></ul>
+<ul class="no-bullets word-list"><li>ASTRONOMY</li><li>TRAVEL</li><li>WEATHER</li><li>TABLE</li></ul>
+<ul class="no-bullets word-list"><li>BALLET</li><li>SOCCER</li><li>COUNTRY</li><li>WEDDING</li></ul>
+<ul class="no-bullets word-list"><li>AQUARIUM</li><li>WATERMELON</li><li>MARSHMALLOW</li><li>CHOCOLATE</li></ul>
+<ul class="no-bullets word-list"><li>BEANBAG</li><li>PIGEON</li><li>CUPCAKE</li><li>PHONE</li></ul>
+<ul class="no-bullets word-list"><li>COOKIES</li><li>REFRIGERATOR</li><li>BOOKSHELF</li>                    </ul>
+                </h3>
+            </div>
+        </body>
+    </div>
+</html>

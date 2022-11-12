@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+        <style>
+            body { background-color: white; }
+            h1 { color: black; font-family: Comic Sans MS, Lobster, sans serif; font-size: 5vw; }
+            h2 { font-size: 3vw; white-space: nowrap; margin-top: 1vw; margin-bottom: -1vw; }
+            h3 { font-size: 2vw; }
+            p { font-size: 2vw; line-height: 2vw; }
+            hr { color: black; background-color: black; height: .3vw; margin-top: 2vw; margin-bottom: 0vw; }
+            ul.no-bullets { list-style-type: none; }
+            .title { margin-top: 0vw; margin-bottom: 0vw; }
+            .subtitle { margin-bottom: 0vw !important; }
+            .difficulty { font-family: sans-serif; color: black; font-size: 3vw; }
+            .table { margin-top: 4vw; }
+            .word-list { column-count: 4; margin-bottom: 1vw; }
+            .instructions { color: black; font-family: sans-serif; font-size: 2vw; margin-top: 3vw !important; margin-bottom: -2vw; }
+            .word-list-header { font-size: 4vw; }
+
+            #puzzle { width: fit-content; height: fit-content; font-family: monospace; font-size: 3vw; border-color: black; border-width: .5vw;
+            border-style: solid; border-radius: .5em; padding: 0vw 1.5vw 2vw 1.5vw; margin: 5vw auto 5vw auto; }
+
+            #word-list { padding-bottom: 0vw; }
+        </style>
+    </head><div class="container-fluid">
+        <body>
+            <div class="title">
+                <h1 class="text-center">Star Wars</h1>
+            </div>
+
+            <div class="subtitle">
+                <h2 class="text-center difficulty">Level 4 - Difficult</h2>
+            </div>            <hr>            <div class="instructions">
+                <p class="text-center">Look through the word search puzzle and find all of the words from the word list.</p>
+                <p class="text-center">The words can be found going from left to right, up to down, or diagonally.</p>
+            </div><div id="puzzle"><h2 class="text-center">T  W  Y  I  J  L  I  G  H  T  S  A  B  E  R  L  J  B  S  L  Q  </h2>
+<h2 class="text-center">D  M  H  K  A  V  D  R  D  T  H  E  H  T  V  U  X  M  G  J  U  </h2>
+<h2 class="text-center">D  G  Z  C  B  R  R  M  A  R  E  R  R  A  Q  K  U  I  I  M  E  </h2>
+<h2 class="text-center">F  M  E  W  B  G  V  B  O  C  T  R  P  T  N  E  Z  L  A  L  E  </h2>
+<h2 class="text-center">G  Z  W  M  A  G  K  R  E  O  U  Q  G  O  M  S  J  L  F  I  N  </h2>
+<h2 class="text-center">N  P  R  L  J  O  E  B  L  L  J  Q  K  O  F  K  D  E  C  M  A  </h2>
+<h2 class="text-center">F  O  Z  L  W  P  S  O  B  W  O  O  K  I  E  Y  E  N  O  U  M  </h2>
+<h2 class="text-center">Y  I  Y  E  M  D  S  T  S  O  T  U  B  N  X  W  A  N  M  Y  I  </h2>
+<h2 class="text-center">V  R  O  E  F  N  A  D  O  Y  W  N  Q  E  V  A  T  I  M  C  D  </h2>
+<h2 class="text-center">R  T  D  C  A  R  V  R  R  R  U  A  I  Y  T  L  H  U  A  O  A  </h2>
+<h2 class="text-center">V  M  A  H  K  I  L  B  T  O  M  I  N  R  J  K  S  M  N  R  L  </h2>
+<h2 class="text-center">D  A  R  T  H  M  A  U  L  H  I  T  J  D  H  E  T  F  D  U  A  </h2>
+<h2 class="text-center">S  T  H  B  L  A  S  T  E  R  V  D  R  L  A  R  A  A  E  S  Y  </h2>
+<h2 class="text-center">Z  S  A  O  O  A  Q  L  M  G  L  A  S  O  W  R  R  L  R  C  U  </h2>
+<h2 class="text-center">I  T  T  V  T  D  B  G  X  G  I  P  D  O  O  O  R  C  S  A  Z  </h2>
+<h2 class="text-center">A  T  A  T  O  H  H  H  A  W  M  P  B  E  M  P  G  O  B  N  T  </h2>
+<h2 class="text-center">L  E  I  A  O  R  G  A  N  A  H  S  F  Z  R  P  E  N  W  T  S  </h2>
+<h2 class="text-center">C  H  E  W  B  A  C  C  A  N  S  A  N  A  K  I  N  R  Y  X  G  </h2>
+<h2 class="text-center">S  T  A  R  D  E  S  T  R  O  Y  E  R  I  M  O  A  G  S  C  Q  </h2>
+<h2 class="text-center">C  L  O  N  E  S  B  P  R  X  W  I  N  G  F  I  G  H  T  E  R  </h2>
+<h2 class="text-center">B  P  A  G  L  D  A  C  A  D  M  I  R  A  L  A  C  K  B  A  R  </h2>
+</div>
+            <hr>
+            <h1 class="text-center word-list-header">List of words</h1>
+            <div class="table">
+                <h3><ul class="no-bullets word-list"><li>BLASTER</li><li>BOW AND ARROW</li><li>WOOKIE</li><li>JABBA</li></ul>
+<ul class="no-bullets word-list"><li>EWOK</li><li>MILLENNIUM FALCON</li><li>CROSSBOW</li><li>LIGHTSABER</li></ul>
+<ul class="no-bullets word-list"><li>LEIA ORGANA</li><li>QUEEN AMIDALA</li><li>DARTH VADER</li><li>LUKE SKYWALKER</li></ul>
+<ul class="no-bullets word-list"><li>ANAKIN</li><li>HAN SOLO</li><li>YODA</li><li>STORM TROOPERS</li></ul>
+<ul class="no-bullets word-list"><li>CLONES</li><li>STAR DESTROYER</li><li>DEATH STAR</li><li>CORUSCANT</li></ul>
+<ul class="no-bullets word-list"><li>DARTH MAUL</li><li>EMPEROR</li><li>TATOOINE</li><li>AT ST</li></ul>
+<ul class="no-bullets word-list"><li>AT AT</li><li>DROIDS</li><li>HOTH</li><li>COMMANDERS</li></ul>
+<ul class="no-bullets word-list"><li>ADMIRAL ACKBAR</li><li>CHEWBACCA</li><li>XWING FIGHTER</li>                    </ul>
+                </h3>
+            </div>
+        </body>
+    </div>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crossword</title>
+    <style>
+
+        body {
+            font-family: arial;
+        }
+
+        h1 {
+            font-family: Comic Sans MS, Helvetica;
+            font-style: bold;
+            font-size: 5vw;
+            margin-top: 3vw;
+            margin-bottom: 1vw;
+            text-align: center;
+            }
+
+        #puzzle {
+            width: fit-content;
+            /* border: .6vw solid black;
+            border-radius: 5%; */
+            padding: 3vw;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 0vw;
+            border-spacing: 0vw;
+            }
+
+        .clue-list {
+            margin-top: 2vw;
+            width: 40vw;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: Comic Sans MS;
+            font-size: 4vw;
+            margin-bottom: 0vw;
+        }
+
+        hr {
+            margin-bottom: 0vw;
+        }
+
+        tr {
+            /*border: .1vw solid black;*/
+            height: 3vw;
+            font-family: sans-serif, monospace;
+            font-size: 3vw;
+        }
+
+        th {
+            vertical-align: top;
+        }
+
+        td {
+            /*border: .1vw solid black;*/
+            width: 3vw;
+            font-size: 1vw;
+            vertical-align: top;
+        }
+
+        .no-bullets {
+            list-style: none;
+        }
+
+        .outside {
+            border: none;
+        }
+
+        .no-bottom-border {
+            border-bottom: none;
+        
+        }
+
+        .no-right-border {
+            border-right: none;
+        } 
+
+        .left-border {
+            border-left: .2vw solid black;
+        }
+
+        .bottom-border {
+            border-bottom: .2vw solid black;
+        }
+
+        .right-border {
+            border-right: .2vw solid black;
+        }
+
+        .top-border {
+            border-top: .2vw solid black;
+        }
+
+        .clue-list {
+            display: inline-block;
+        }
+
+        li {
+            margin-bottom: 1vw;
+            text-align: left;
+            font-size: 3vw;
+            font-weight: 400;
+        }
+       
+
+    </style>
+</head>
+<body>
+<div>
+    <h1>Test</h1>
+</div>
+    <table id="puzzle">
+        <tr>
+        <td class ="bottom-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="bottom-border "></td>
+        <td class ="left-border bottom-border top-border ">1</td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        </tr>
+        <tr>
+        <td class ="left-border bottom-border ">2</td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border ">3</td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border right-border"></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border ">4</td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border right-border"></td>
+        </tr>
+        <tr>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border top-border ">5</td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class =""></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class ="left-border bottom-border ">6</td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border right-border"></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border ">7</td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border right-border"></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border ">8</td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border right-border"></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class ="bottom-border "></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class ="left-border bottom-border top-border ">9</td>
+        <td class ="left-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class ="left-border bottom-border ">10</td>
+        <td class ="left-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="left-border bottom-border ">11</td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border right-border"></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class ="left-border bottom-border ">12</td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border ">13</td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border right-border"></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class ="bottom-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        </tr>
+        <tr>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class ="left-border bottom-border ">14</td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border bottom-border "></td>
+        <td class ="left-border "></td>
+        <td class =""></td>
+        <td class =""></td>
+        <td class =""></td>
+        </tr>
+    </table>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <h2>Down</h2>
+                </th>
+                <th>
+                    <h2>Across</h2>
+                </th>
+            </tr>
+        </thead>
+        <tr>
+            <th>
+                <ul class="no-bullets">
+                    <li>1.  something that tells directions</li>
+                    <li>2.  big animal</li>
+                    <li>3.  display device for a computer</li>
+                    <li>5.  2</li>
+                    <li>8.  big kind of spikey fruit</li>
+                    <li>9.  machine for washing dishes</li>
+                    <li>10.  meow meow</li>
+                    <li>11.  they bloom and come in different colors</li>
+                </ul>
+            </th>
+            <th>
+                <ul class="no-bullets">
+                    <li>3.  visual geographic layout on paper</li>
+                    <li>4.  little feller</li>
+                    <li>6.  string instrument</li>
+                    <li>7.  yellow fruit</li>
+                    <li>8.  musical instrument</li>
+                    <li>11.  flying disc</li>
+                    <li>12.  running machine</li>
+                    <li>13.  something you wear on your feet</li>
+                    <li>14.  it's for breakfast</li>
+                </ul>
+            </th>
+        </tr>
+    </table>  
+
+    </body>
+</html>
+

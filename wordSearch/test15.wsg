@@ -1,0 +1,34 @@
+
+                                      Test
+                                Level 3 - Medium
+
+Look through the word search puzzle and find all of the words from the word list.
+The words can be found going from left to right, up to down, or diagonally.
+
+               G  C  G  H  W  W  L  F  M  B  E  U  P  U  A  W  N  
+               R  U  O  W  Z  E  M  X  R  T  E  J  H  T  I  E  Z  
+               U  C  I  U  F  C  A  V  A  I  I  A  O  M  R  D  Y  
+               M  U  S  T  N  D  H  C  U  W  S  E  N  Q  P  D  M  
+               D  P  F  Z  A  T  S  R  D  K  E  B  E  B  L  I  A  
+               D  C  L  S  P  R  R  R  I  L  A  A  E  Y  A  N  R  
+               I  A  G  I  L  E  A  Y  H  S  S  C  T  E  N  G  S  
+               N  K  G  S  W  Z  B  S  A  P  T  O  J  H  E  N  H  
+               O  E  V  O  I  P  I  H  L  I  E  M  S  B  E  B  M  
+               S  J  L  W  T  I  C  O  L  G  R  P  A  H  C  R  A  
+               A  F  L  B  E  A  Y  V  O  E  C  U  C  S  A  C  L  
+               U  Q  V  L  E  N  C  E  W  O  X  T  R  A  V  E  L  
+               R  M  B  K  F  O  L  L  E  N  I  E  T  M  X  W  O  
+               B  A  L  L  E  T  E  T  E  K  Y  R  J  E  L  Y  W  
+               T  R  S  O  C  C  E  R  N  A  Q  U  A  R  I  U  M  
+
+
+                                  List of words
+
+CHRISTMAS           HALLOWEEN           EASTER              FRISBEE             
+WIZARD              CAT                 DINOSAUR            BICYCLE             
+PIANO               GUITAR              SHOVEL              COMPUTER            
+FLOWER              AIRPLANE            KITCHEN             TRAVEL              
+WEATHER             TABLE               BALLET              SOCCER              
+COUNTRY             WEDDING             AQUARIUM            MARSHMALLOW         
+BEANBAG             CUPCAKE             PIGEON              PHONE               
+
