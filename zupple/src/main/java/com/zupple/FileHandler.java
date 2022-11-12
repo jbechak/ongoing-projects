@@ -55,6 +55,22 @@ public class FileHandler {
         return puzzle;
     }
 
+//    public String getGridFromFile(String filePathString) throws FileNotFoundException {
+//        String gridString = "";
+//        File sourceFile = new File(filePathString);
+//        try (Scanner fileScanner = new Scanner(sourceFile)) {
+//            while (fileScanner.hasNext()) {
+////                String lineOfText = fileScanner.nextLine();
+////                gridString += lineOfText + "\n";
+//                gridString += fileScanner.nextLine() + "\n";
+//            }
+//        } catch (FileNotFoundException e) {
+//            System.out.println("File Not Found");
+//        }
+//        return gridString;
+//
+//    }
+
     public void listFiles() {
 
         try {

@@ -11,7 +11,7 @@ import java.util.List;
 public class WordSearch {
 
     private String gridString;
-    private int puzzleId =0;
+    private int wordSearchId =0;
     private String title;
     private int width;
     private int height;
@@ -34,6 +34,18 @@ public class WordSearch {
 
     public WordSearch(String title) {
         this.title = title;
+    }
+
+    public int getWordSearchId() {
+        return wordSearchId;
+    }
+
+    public void setWordSearchId(int wordSearchId) {
+        this.wordSearchId = wordSearchId;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
     }
 
     public WordSearch() {}
