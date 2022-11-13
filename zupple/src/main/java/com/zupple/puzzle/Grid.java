@@ -47,9 +47,9 @@ public class Grid {
     public String toString() {
         String gridString = "";
         for (int i = 0; i < height; i++) {
-            gridString += tabToCenter(width * 3);
+//            gridString += tabToCenter(width * 3);
             for (int j = 0; j < width; j++) {
-                gridString += (getBlock(j, i) + "  ");
+                gridString += (getBlock(j, i));
             }
             gridString += "\n";
         }

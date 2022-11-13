@@ -20,6 +20,17 @@ public class BuildingTools {
     private HorizontalSpaceFinder horizontalSpaceFinder = new HorizontalSpaceFinder();
     private DiagonalSpaceFinder diagonalSpaceFinder = new DiagonalSpaceFinder();
     private DiagonalUpSpaceFinder diagonalUpSpaceFinder = new DiagonalUpSpaceFinder();
+//    private final String INSTRUCTIONS_1 = "Look through the word search puzzle " +
+//            "and find all of the words from the word list.\nThe words can be " +
+//            "found going from left to right or from top to bottom.";
+//    private final String INSTRUCTIONS_2 = "Look through the word search puzzle " +
+//            "and find all of the words from the word list.\nThe words can be " +
+//            "found going from left to right, top to bottom, or diagonally.";
+//
+//    private final String INSTRUCTIONS_3 = "Look through the word search puzzle " +
+//            "and find all of the words from the word list.\nThe words can be " +
+//            "found going from left to right, top to bottom, diagonally, or\n" +
+//            "backwards in any of these directions.";
     private final int MAX_WIDTH = 81;
 
 
@@ -78,39 +89,40 @@ public class BuildingTools {
         myInterface.displayNumberedWordList(puzzle.getWordCollection());
     }
 
-    public void wordDirections(Puzzle puzzle) {
-        String wordDirections;
-        do {
-            wordDirections = myInterface.wordDirectionsMenu();
-            if (!isValidWordDirections(wordDirections)) {
-                myInterface.invalidNumber();
-            }
-        } while (!isValidWordDirections(wordDirections));
-
-        int wd = Integer.parseInt(wordDirections);
-        puzzle.setWordDirections(wd);
-
-//        puzzle.setDifficultyNum(difficulty);
-//        puzzle.setDifficulty(difficulty);
-        setInstructions(puzzle);
-    }
+//    public void wordDirections(Puzzle puzzle) {
+//        String wordDirections;
+//        do {
+//            wordDirections = myInterface.wordDirectionsMenu();
+//            if (!isValidWordDirections(wordDirections)) {
+//                myInterface.invalidNumber();
+//            }
+//        } while (!isValidWordDirections(wordDirections));
+//
+//        int wd = Integer.parseInt(wordDirections);
+//        puzzle.setWordDirections(wd);
+//
+////        puzzle.setDifficultyNum(difficulty);
+////        puzzle.setDifficulty(difficulty);
+//        setInstructions(puzzle);
+//    }
 
     private boolean isValidWordDirections(String wordDirections) {
         return wordDirections.equals("1") || wordDirections.equals("2") || wordDirections.equals("3");
     }
 
-    public void setInstructions(Puzzle puzzle) {
-        Instructions instructions = new Instructions();
-        if (puzzle.getWordDirections() == 1) {
-            puzzle.setInstructions(instructions.getInstructions2());
-        }
-        if (puzzle.getWordDirections() == 2) {
-            puzzle.setInstructions(instructions.getInstructions4());
-        }
-        if (puzzle.getWordDirections() == 3) {
-            puzzle.setInstructions(instructions.getInstructions8());
-        }
-    }
+//    public String setInstructions(int wordDirections) {
+//        Instructions instructions = new Instructions();
+//        if (wordDirections == 1) {
+//            return instructions.getINSTRUCTIONS_1();
+//        }
+//        if (wordDirections == 2) {
+//            return instructions.getINSTRUCTIONS_2();
+//        }
+//        if (wordDirections == 3) {
+//            return instructions.getINSTRUCTIONS_3();
+//        }
+//        return "";
+//    }
 
     public int longestWord(List<String> wordCollection) {
         int longestWord = 0;
@@ -148,11 +160,21 @@ public class BuildingTools {
         wordSearch.populateWordList(wordSearch.getWordCollection());
         wordSearch.setWordCount(wordSearch.getWordList().size());
         generateWordSearch(wordSearch, grid);
+        updateWordCollection(wordSearch);
+
         grid.fillWithRandomLetters();
         wordSearch.setDifficulty(grid);
         wordSearch.setGridString(grid.toString());
         wordSearch.setWordCount(wordSearch.getWordList().size());
+        wordSearch.createInstructions();
 //        System.out.println(wordSearch.);
+    }
+
+    private void updateWordCollection(WordSearch wordSearch) {
+        wordSearch.getWordCollection().clear();
+        for (Word word : wordSearch.getWordList().getWords()) {
+            wordSearch.getWordCollection().add(word.toString());
+        }
     }
 
 //    public void createGrid(Puzzle puzzle) {

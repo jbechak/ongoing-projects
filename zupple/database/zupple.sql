@@ -16,6 +16,7 @@ create table account (
 create table sudoku (
     sudoku_id serial primary key,
     user_id integer references account (user_id),
+    title varchar(50),
     difficulty integer,
     instructions varchar(250),
     grid_path varchar(200) not null,
@@ -38,7 +39,7 @@ create table crossword (
 
 create table wordsearch (
 	wordsearch_id serial primary key,
-	user_id integer references account (user_id),
+	user_id not null integer references account (user_id),
 	title varchar(60),
 	description varchar(500),
 	difficulty varchar(20),
@@ -53,7 +54,8 @@ create table wordsearch (
 create table crossword_wordclue (
     wordclue_id serial primary key,
     crossword_id integer references crossword (crossword_id),
-    clue_number varchar(10),
+    clue_direction varchar(8),
+    clue_number integer,
     word varchar(30),
     clue varchar(200)
 );
@@ -63,5 +65,17 @@ create table wordsearch_word (
     wordsearch_id integer references wordsearch (wordsearch_id),
     word varchar(30)
 );
+
+insert into account (username, password_hash)
+values ('Justin', 'password');
+
+insert into account (username, password_hash)
+values ('Melodi', 'password');
+
+insert into account (username, password_hash)
+values ('Canly', 'password');
+
+insert into wordsearch (user_id, title, difficulty, width, height, )
+
 
 commit;

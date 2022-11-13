@@ -1,6 +1,7 @@
 package com.zupple.model;
 
 import com.zupple.HtmlEncoder;
+import com.zupple.Instructions;
 import com.zupple.puzzle.Grid;
 import com.zupple.puzzle.Puzzle;
 import com.zupple.puzzle.WordList;
@@ -24,10 +25,11 @@ public class WordSearch {
     private String instructions = "";
     private String description = "";
     private String creator = "";
+    private String gridPath;
 
     private final int FULL_WIDTH = 81;
 //    private Grid grid;
-//    private String filePath;
+
 
 //    private boolean isSaved = false;
     //    private WordList finalWordList = new WordList();
@@ -58,18 +60,18 @@ public class WordSearch {
         this.wordDirections = wordDirections;
     }
 
-    public String getWordDirectionsString() {
-        if (wordDirections == 1) {
-            return "Words can go horizontally and vertically";
-        }
-        if (wordDirections == 2) {
-            return "Words can go horizontally, vertically, and in 2 diagonal directions";
-        }
-        if (wordDirections == 3) {
-            return "Words can go horizontally, vertically, diagonally, and backwards in all directions";
-        }
-        return "";
-    }
+//    public String getWordDirectionsString() {
+//        if (wordDirections == 1) {
+//            return "Words can go horizontally and vertically";
+//        }
+//        if (wordDirections == 2) {
+//            return "Words can go horizontally, vertically, and in 2 diagonal directions";
+//        }
+//        if (wordDirections == 3) {
+//            return "Words can go horizontally, vertically, diagonally, and backwards in all directions";
+//        }
+//        return "";
+//    }
 //
 //    public void setGridString(Grid grid) {
 //        this.gridString = "\n" + tabToCenter(title) + "\n" + tabToCenter(getDifficulty()) + "\n\n" + instructions + "\n\n" +
@@ -102,14 +104,13 @@ public class WordSearch {
         return space + word;
     }
 
-    public int getPuzzleId() {
-        return puzzleId;
+    public String getGridPath() {
+        return gridPath;
     }
 
-    public void setPuzzleId(int puzzleId) {
-        this.puzzleId = puzzleId;
+    public void setGridPath(String gridPath) {
+        this.gridPath = gridPath;
     }
-
 
     public List<String> getWordCollection() {
         return wordCollection;
@@ -151,16 +152,16 @@ public class WordSearch {
         if (getCredits(grid) >= 8) {
             this.difficulty = "Level 5 - Very Difficult";
         }
-        if (getCredits(grid) >= 6) {
+        else if (getCredits(grid) >= 6) {
             this.difficulty = "Level 4 - Difficult";
         }
-        if (getCredits(grid) >= 3) {
+        else if (getCredits(grid) >= 3) {
             this.difficulty = "Level 3 - Medium";
         }
-        if (getCredits(grid) >= 1) {
+        else if (getCredits(grid) >= 1) {
             this.difficulty = "Level 2 - Easy";
         }
-        this.difficulty = "Level 1 - Very Easy";
+        else this.difficulty = "Level 1 - Very Easy";
     }
 
     private int getCredits(Grid grid) {
@@ -217,6 +218,19 @@ public class WordSearch {
 
     public String getInstructions() {
         return instructions;
+    }
+
+    public void createInstructions() {
+        Instructions instructMaker = new Instructions();
+        if (wordDirections == 1) {
+            this.instructions = instructMaker.getINSTRUCTIONS_1();
+        }
+        if (wordDirections == 2) {
+            this.instructions = instructMaker.getINSTRUCTIONS_2();
+        }
+        if (wordDirections == 3) {
+            this.instructions = instructMaker.getINSTRUCTIONS_3();
+        }
     }
 
     public void setInstructions(String instructions) {

@@ -1,8 +1,10 @@
 package com.zupple.crossword;
 
+import com.zupple.FileHandler;
 import com.zupple.HtmlPrintEncoder;
 import com.zupple.Instructions;
 import com.zupple.main.UserInterface;
+import com.zupple.model.Crossword;
 import com.zupple.puzzle.Grid;
 import com.zupple.puzzle.Puzzle;
 import com.zupple.puzzle.Word;
@@ -22,7 +24,8 @@ public class CrosswordBuildingTools {
     private VerticalCrosswordSpaceFinder verticalSpaceFinder = new VerticalCrosswordSpaceFinder();
     //private HorizontalSpaceFinder horizontalSpaceFinder = new HorizontalSpaceFinder();
     HtmlPrintEncoder htmlEncoder = new HtmlPrintEncoder();
-    CrosswordFileHandler fileHandler = new CrosswordFileHandler();
+    CrosswordFileHandler crosswordFileHandler = new CrosswordFileHandler();
+    FileHandler fileHandler = new FileHandler();
     private final int MAX_WIDTH = 81;
 
 
@@ -85,13 +88,13 @@ public class CrosswordBuildingTools {
     public void setInstructions(Puzzle puzzle) {
         Instructions instructions = new Instructions();
         if (puzzle.getWordDirections() == 1) {
-            puzzle.setInstructions(instructions.getInstructions2());
+            puzzle.setInstructions(instructions.getINSTRUCTIONS_1());
         }
         if (puzzle.getWordDirections() == 2) {
-            puzzle.setInstructions(instructions.getInstructions4());
+            puzzle.setInstructions(instructions.getINSTRUCTIONS_2());
         }
         if (puzzle.getWordDirections() == 3) {
-            puzzle.setInstructions(instructions.getInstructions8());
+            puzzle.setInstructions(instructions.getINSTRUCTIONS_3());
         }
     }
 
@@ -126,11 +129,20 @@ public class CrosswordBuildingTools {
         puzzle.setHeight(height);
     }
 
-    public void createGrid(CrosswordPuzzle puzzle) {
+    public Crossword createGrid(CrosswordPuzzle puzzle) {
 //        puzzle.populateWordList();
         puzzle.setWordCount(puzzle.getWordList().size());
         CrosswordPuzzle thisPuzzle = buildCrosswordPuzzle(puzzle);
 
+        Crossword crossword = new Crossword(puzzle.getTitle());
+        crossword.setWidth(thisPuzzle.getGrid().getWidth());
+        crossword.setHeight(thisPuzzle.getGrid().getHeight());
+        crossword.setWordClues(thisPuzzle.getWordClues());
+        crossword.setDownClueList(thisPuzzle.getDownClueList());
+        crossword.setAcrossClueList(thisPuzzle.getAcrossClueList());
+        crossword.setGridString(thisPuzzle.getGrid().toString());
+
+        return crossword;
 //        printResults(thisPuzzle);
 //        for (Word word : thisPuzzle.getSortedWordList().getWords()) {
 //            System.out.println(word + ": " + word.getStartingX() + ", " +
@@ -138,8 +150,9 @@ public class CrosswordBuildingTools {
 //        }
 //        thisPuzzle.printWordClues();
 //        System.out.println(thisPuzzle.clueListsToString());
-        String fileName = myInterface.enterSavePath();
-        fileHandler.saveHtmlCrosswordPuzzle(fileName, thisPuzzle, htmlEncoder);
+
+//        String fileName = myInterface.enterSavePath();
+//        fileHandler.saveHtmlCrosswordPuzzle(fileName, thisPuzzle, htmlEncoder);
     }
 
     public CrosswordPuzzle buildCrosswordPuzzle(CrosswordPuzzle puzzle) {

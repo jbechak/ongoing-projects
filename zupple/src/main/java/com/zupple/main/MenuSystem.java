@@ -159,7 +159,7 @@ public class MenuSystem {
                 buildingTools.removeWords(puzzle);
             }
             if (choice.equals("3")) {
-                buildingTools.wordDirections(puzzle);
+//                buildingTools.wordDirections(puzzle);
             }
             if (choice.equals("4")) {
                 buildingTools.getDimensions(puzzle);

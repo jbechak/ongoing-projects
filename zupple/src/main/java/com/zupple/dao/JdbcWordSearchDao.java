@@ -1,21 +1,22 @@
 package com.zupple.dao;
 
+import com.zupple.FileHandler;
 import com.zupple.model.WordSearch;
-import com.zupple.puzzle.Puzzle;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 @Component
 public class JdbcWordSearchDao implements WordSearchDao {
 
     private final JdbcTemplate jdbcTemplate;
+    private final FileHandler fileHandler = new FileHandler();
+    private final String PATH_PREFIX = "wordsearch-puzzles/ws";
 
     public JdbcWordSearchDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -31,29 +32,78 @@ public class JdbcWordSearchDao implements WordSearchDao {
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 
-        while(results.next()) {
-            wordSearches.add(mapRowToWordSearch);
+        while (results.next()) {
+            wordSearches.add(mapRowToWordSearch(results));
         }
         return wordSearches;
     }
 
     @Override
     public WordSearch getWordSearch(int wordSearchId) {
+        String sql = "select wordsearch_id, title, description, difficulty, width, height, " +
+                "genre, instructions, grid_path, html_path\n" +
+                "from wordsearch where wordsearch_id = ?;";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, wordSearchId);
+
+        if (results.next()) {
+            return mapRowToWordSearch(results);
+        }
         return null;
     }
 
     @Override
     public WordSearch createWordSearch(WordSearch wordSearch) {
-        return null;
+        String sql = "insert into wordsearch (title, description, difficulty, " +
+                "width, height, genre, instructions, grid_path)" +
+                "values (?, ?, ?, ?,  ?, ?, ?, ?) returning wordsearch_id;";
+
+        String gridPath = fileHandler.saveAsGrid(wordSearch.getGridString(), PATH_PREFIX);
+
+        Integer wordSearchId = jdbcTemplate.queryForObject(sql, Integer.class,
+                wordSearch.getTitle(),
+                wordSearch.getDescription(),
+                wordSearch.getDifficulty(),
+                wordSearch.getWidth(),
+                wordSearch.getHeight(),
+                wordSearch.getGenre(),
+                wordSearch.getInstructions(),
+                gridPath);
+
+        createWordCollection(wordSearchId, wordSearch.getWordCollection());
+
+        return getWordSearch(wordSearchId);
     }
 
     @Override
     public WordSearch updateWordSearch(WordSearch wordSearch) {
-        return null;
+        String sql = "select grid_path from wordsearch where wordsearch_id = ?;";
+        String gridPath = jdbcTemplate.queryForObject(sql, String.class, wordSearch.getWordSearchId());
+        fileHandler.saveGrid(wordSearch.getGridString(), gridPath);
+
+        sql = "update wordsearch " +
+                "set title = ?, description = ?, difficulty = ?, " +
+                "width = ?, height = ?, genre = ?, instructions = ?, grid_path = ? " +
+                "where wordsearch_id = ?;";
+
+        jdbcTemplate.update(sql,
+                wordSearch.getTitle(),
+                wordSearch.getDescription(),
+                wordSearch.getDifficulty(),
+                wordSearch.getWidth(),
+                wordSearch.getHeight(),
+                wordSearch.getGenre(),
+                wordSearch.getInstructions(),
+                gridPath,
+                wordSearch.getWordSearchId());
+
+        updateWordCollection(wordSearch.getWordSearchId(), wordSearch.getWordCollection());
+
+        return getWordSearch(wordSearch.getWordSearchId());
     }
 
     private WordSearch mapRowToWordSearch(SqlRowSet results) {
-        WordSearch wordSearch = new WordSearch();
+        WordSearch wordSearch = new WordSearch(results.getString("title"));
         wordSearch.setWordSearchId(results.getInt("wordsearch_id"));
         wordSearch.setDescription(results.getString("description"));
         wordSearch.setDifficulty(results.getString("difficulty"));
@@ -63,23 +113,38 @@ public class JdbcWordSearchDao implements WordSearchDao {
         wordSearch.setInstructions(results.getString("instructions"));
 
         String gridPath = results.getString("grid_path");
-        String gridString = getGridFromFile(gridPath);
+        String gridString = fileHandler.getGridFromFile(gridPath);
         wordSearch.setGridString(gridString);
+
+        wordSearch.setWordCollection(getWordCollection(wordSearch.getWordSearchId()));
 
         return wordSearch;
     }
 
-    private String getGridFromFile(String filePathString) {
-        String gridString = "";
-        File sourceFile = new File(filePathString);
-        try (Scanner fileScanner = new Scanner(sourceFile)) {
-            while (fileScanner.hasNext()) {
-                gridString += fileScanner.nextLine() + "\n";
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("File Not Found");
-        }
-        return gridString;
+    private List<String> getWordCollection(int wordSearchId) {
+        List<String> wordCollection = new ArrayList<>();
+        String sql = "select word from wordsearch_word where wordsearch_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, wordSearchId);
 
+        while (results.next()) {
+            wordCollection.add(results.getString("word"));
+        }
+        return wordCollection;
+    }
+
+    private void createWordCollection(int wordSearchId, List<String> wordCollection) {
+        for (String word : wordCollection) {
+            String sql = "insert into wordsearch_word (wordsearch_id, word) " +
+                    "values (?, ?);";
+            jdbcTemplate.update(sql, wordSearchId, word);
+        }
+    }
+
+    private void updateWordCollection(int wordSearchId, List<String> wordCollection) {
+        String sql = "delete from wordsearch_word where wordsearch_id = ?;";
+        jdbcTemplate.update(sql, wordSearchId);
+        createWordCollection(wordSearchId, wordCollection);
     }
 }
+
+

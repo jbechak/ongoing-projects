@@ -146,6 +146,14 @@ public class CrosswordPuzzle extends Puzzle {
         }
     }
 
+    public List<String> getDownClueList() {
+        return downClueList;
+    }
+
+    public List<String> getAcrossClueList() {
+        return acrossClueList;
+    }
+
     public String htmlClueLists() {
         String htmlDownClues = "<th>\n" +
                 "                <ul class=\"no-bullets\">\n";

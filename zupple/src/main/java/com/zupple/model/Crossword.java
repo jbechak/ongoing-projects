@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Crossword {
-    private int crossWordId =0;
+    private int crosswordId =0;
     private String title;
     private int width;
     private int height;
@@ -19,33 +19,42 @@ public class Crossword {
     private List<String> acrossClueList;
     private String difficulty;
     private String genre = "";
-    private String instructions = "";
+    private String instructions = "For each clue, find the word in the puzzle that it is referring to.";
     private String description = "";
-    private String creator = "";
+    private String gridPath = "";
 
-
+//    private String creator = "";
 //    private List<String> wordCollection = new ArrayList<>();
 //    private WordList wordList = new WordList();
 //    private WordList finalWordList = new WordList();
-//    private WordList sortedWordList;
+    private WordList sortedWordList;
 //    private int wordCount;
 //    private final int GRID_SIZE = 120;
 //    private Grid grid = new Grid(GRID_SIZE, GRID_SIZE);
 
 
-
-
-    public CrosswordPuzzle(String title) {
-        super(title);
+    public Crossword() {
     }
 
-    public CrosswordPuzzle(String title, Map<String, String> wordClues,
-                           List<String> wordCollection, WordList wordList, int wordCount) {
-        super(title);
-        this.wordClues = wordClues;
-        this.wordCollection = wordCollection;
-        this.wordList = wordList;
-        this.wordCount = wordCount;
+    public Crossword(String title) {
+        this.title = title;
+    }
+
+//    public Crossword(String title, Map<String, String> wordClues,
+//                           List<String> wordCollection, WordList wordList, int wordCount) {
+//        super(title);
+//        this.wordClues = wordClues;
+//        this.wordCollection = wordCollection;
+//        this.wordList = wordList;
+//        this.wordCount = wordCount;
+//    }
+
+    public String getGridPath() {
+        return gridPath;
+    }
+
+    public void setGridPath(String gridPath) {
+        this.gridPath = gridPath;
     }
 
     public WordList getSortedWordList() {
@@ -60,9 +69,97 @@ public class Crossword {
         this.sortedWordList = sortedWordList;
     }
 
-    public int getArea() {
-        return grid.getWidth() * grid.getHeight();
+    public int getCrosswordId() {
+        return crosswordId;
     }
+
+    public void setCrosswordId(int crosswordId) {
+        this.crosswordId = crosswordId;
+    }
+
+    public List<String> getDownClueList() {
+        return downClueList;
+    }
+
+    public void setDownClueList(List<String> downClueList) {
+        this.downClueList = downClueList;
+    }
+
+    public List<String> getAcrossClueList() {
+        return acrossClueList;
+    }
+
+    public void setAcrossClueList(List<String> acrossClueList) {
+        this.acrossClueList = acrossClueList;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public String getGridString() {
+        return gridString;
+    }
+
+    public void setGridString(String gridString) {
+        this.gridString = gridString;
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+//    public int getArea() {
+//        return grid.getWidth() * grid.getHeight();
+//    }
 
     public Map<String, String> getWordClues() {
         return wordClues;
@@ -72,69 +169,69 @@ public class Crossword {
         this.wordClues = wordClues;
     }
 
-    public void populateWordCollection() {
-        wordCollection.clear();
-
-        for (String key : wordClues.keySet()) {
-            wordCollection.add(key);
-        }
-    }
-
-    public void populateWordList() {
-        wordCollection.clear();
-        wordList.getWords().clear();
-        for (String key : wordClues.keySet()) {
-            wordCollection.add(key);
-
-            String upperCaseWord = key.toUpperCase();
-            String[] brokenWord = upperCaseWord.split("");
-            Word newWord = new Word(brokenWord);
-            newWord.setClue(wordClues.get(key));
-
-            wordList.getWords().add(newWord);
-
-
-        }
+//    public void populateWordCollection() {
+//        wordCollection.clear();
+//
+//        for (String key : wordClues.keySet()) {
+//            wordCollection.add(key);
+//        }
+//    }
+//
+//    public void populateWordList() {
+//        wordCollection.clear();
+//        wordList.getWords().clear();
+//        for (String key : wordClues.keySet()) {
+//            wordCollection.add(key);
+//
+//            String upperCaseWord = key.toUpperCase();
+//            String[] brokenWord = upperCaseWord.split("");
+//            Word newWord = new Word(brokenWord);
+//            newWord.setClue(wordClues.get(key));
+//
+//            wordList.getWords().add(newWord);
+//
+//
+//        }
 
 //        wordList.populateFromStringList(wordCollection);
-    }
+//    }
 
-    public int getWordCount() {
-        return wordCount;
-    }
-
-    public void setWordCount(int wordCount) {
-        this.wordCount = wordCount;
-    }
-
-    @Override
-    public WordList getWordList() {
-        return wordList;
-    }
-
-    public void setWordList(WordList wordList) {
-        this.wordList = wordList;
-    }
-
-    @Override
-    public WordList getFinalWordList() {
-        return finalWordList;
-    }
-
-    @Override
-    public Grid getGrid() {
-        return grid;
-    }
-
-    @Override
-    public void setGrid(Grid grid) {
-        this.grid = grid;
-    }
-
-    @Override
-    public String toString() {
-        return grid.toString() + finalWordList.toString();
-    }
+//    public int getWordCount() {
+//        return wordCount;
+//    }
+//
+//    public void setWordCount(int wordCount) {
+//        this.wordCount = wordCount;
+//    }
+//
+//    @Override
+//    public WordList getWordList() {
+//        return wordList;
+//    }
+//
+//    public void setWordList(WordList wordList) {
+//        this.wordList = wordList;
+//    }
+//
+//    @Override
+//    public WordList getFinalWordList() {
+//        return finalWordList;
+//    }
+//
+//    @Override
+//    public Grid getGrid() {
+//        return grid;
+//    }
+//
+//    @Override
+//    public void setGrid(Grid grid) {
+//        this.grid = grid;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return grid.toString() + finalWordList.toString();
+//    }
 
     public void printWordClues() {
         for (Map.Entry<String, String> keyValuePair : wordClues.entrySet()) {

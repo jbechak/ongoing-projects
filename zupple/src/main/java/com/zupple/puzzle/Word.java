@@ -24,6 +24,7 @@ public class Word {
         return wordString;
     }
 
+
     public Word flip() {
         String[] flippedWord = new String[letterArray.length];
         for (int i = 0, j = letterArray.length - 1; i < letterArray.length; i++, j--) {

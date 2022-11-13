@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface CrosswordDao {
 
-    List<WordSearch> getAll();
+    List<Crossword> getAll(int userId);
 
-    Crossword getWordSearch(int crosswordId);
+    Crossword getCrossword(int crosswordId);
 
     Crossword createCrossword(Crossword crossword);
 

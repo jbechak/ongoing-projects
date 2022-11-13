@@ -38,7 +38,7 @@ public class EditingTools {
             }
             if (choice.equals("3")) {
                 BuildingTools buildingTools = new BuildingTools();
-                buildingTools.setInstructions(puzzle);
+//                buildingTools.setInstructions(puzzle);
             }
         } while (!choice.equals("1"));
     }

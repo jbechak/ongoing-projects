@@ -7,11 +7,49 @@ import com.zupple.puzzle.Puzzle;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class FileHandler {
+
+    public String saveAsGrid(String gridString, String pathPrefix) {
+        String filePath = pathPrefix + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMdd-hhmmss")) + ".zup";
+
+        File outputFile = new File(filePath);
+        try (PrintWriter printWriter = new PrintWriter(outputFile)) {
+            printWriter.println(gridString);
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found");
+        }
+        return filePath;
+    }
+
+    public void saveGrid(String gridString, String filePath) {
+        File outputFile = new File(filePath);
+        try (PrintWriter printWriter = new PrintWriter(outputFile)) {
+            printWriter.println(gridString);
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found");
+        }
+    }
+
+    public String getGridFromFile(String filePathString) {
+        String gridString = "";
+        File sourceFile = new File(filePathString);
+        try (Scanner fileScanner = new Scanner(sourceFile)) {
+            while (fileScanner.hasNext()) {
+                gridString += fileScanner.nextLine() + "\n";
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found");
+        }
+        return gridString;
+    }
+
+
 
     public List<String> createFromFile(String fileName) throws FileNotFoundException {
         List<String> wordCollection = new ArrayList<>();
