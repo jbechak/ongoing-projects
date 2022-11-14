@@ -38,9 +38,11 @@ public class Roller {
 
             if (choice.equals("1")) {
                 getPlayers();
+                getSameDiceAmount();
             }
             if (choice.equals("2")) {
-                selectNumberOfDice();
+//                selectNumberOfDice();
+                getSameDiceAmount();
             }
             if (choice.equals("3")) {
                 diceRoller();
@@ -59,9 +61,10 @@ public class Roller {
     }
 
     public void getPlayers() {
-        if (playerList.size() >= 2) {
-            addOrResetMenu();
-        }
+//        if (playerList.size() >= 2) {
+//            addOrResetMenu();
+//        }
+        playerList.clear();
         String choice = ui.howManyPlayers();
         numOfPlayers = stringToInt(choice);
         addPlayers(numOfPlayers);

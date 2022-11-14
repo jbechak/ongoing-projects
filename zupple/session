@@ -1,0 +1,19 @@
+select *
+from wordsearch;
+
+select *
+from wordsearch_word;
+
+update wordsearch
+set title = 'Pears', description = 'A', difficulty = 'Easy', 
+width = '8', height = '8', genre = 'B', instructions = 'C', grid_path = 'wordsearch-puzzles/ws221113-101311.zup' 
+where wordsearch_id = 1;
+
+select * from crossword;
+
+select * from crossword_wordclue;
+
+select * from sudoku;
+
+alter table sudoku
+add title varchar(50);
