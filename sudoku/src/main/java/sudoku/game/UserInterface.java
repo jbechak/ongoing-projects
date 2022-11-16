@@ -11,7 +11,11 @@ public class UserInterface {
     }
 
     public String getFileName() {
-        System.out.print("Please enter a file name to save the puzzle to: ");
+        System.out.print("Please enter a file name to save the puzzle to (without an extension): ");
         return keyboard.nextLine();
+    }
+
+    public void invalidNumber() {
+        System.out.println("Please enter a valid number.\n");
     }
 }

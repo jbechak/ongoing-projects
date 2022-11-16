@@ -31,10 +31,10 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../zupple" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../justin-bechak-student-code/module-2/07_Data_Access_and_DAO/exercise" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -87,7 +87,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/wordSearch/crossword/CrosswordBuildingTools.java</url>
-          <line>130</line>
+          <line>37</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>

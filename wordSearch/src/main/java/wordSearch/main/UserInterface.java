@@ -14,8 +14,7 @@ public class UserInterface {
         System.out.print("\nMAIN MENU\n" +
                 "1. Word Search Generator\n" +
                 "2. Crossword Puzzle Generator\n" +
-                "3. Sudoku Puzzle Generator\n" +
-                "4. Exit\n\n");
+                "3. Exit\n\n");
         return chooseAnOption();
     }
 
@@ -26,7 +25,7 @@ public class UserInterface {
     public String mainMenu() {
         System.out.print("\nMAIN MENU\n" +
                 "1. Create a new word search\n" +
-                "2. Open an existing word search\n" +
+                "2. Open an existing word search - *CURRENTLY OUT OF ORDER*\n" +
                 "3. Exit\n\n");
         return chooseAnOption();
     }

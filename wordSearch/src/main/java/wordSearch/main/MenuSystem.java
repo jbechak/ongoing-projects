@@ -41,14 +41,12 @@ public class MenuSystem {
             if (choice.equals("1")) {
                 mainMenu();
             } else if (choice.equals("2")) {
-                crosswordMenuSystem.mainMenu();
+                crosswordMenuSystem.newPuzzleMenu();
             } else if (choice.equals("3")) {
-                exit();
-            } else if (choice.equals("4")) {
                 exit();
             }
 
-        } while (!choice.equals("4"));
+        } while (!choice.equals("3"));
     }
 
     public void mainMenu() {

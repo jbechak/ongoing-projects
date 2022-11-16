@@ -1,7 +1,6 @@
 package wordSearch.crossword;
 
 import wordSearch.HtmlPrintEncoder;
-import wordSearch.Instructions;
 import wordSearch.main.UserInterface;
 import wordSearch.puzzle.Grid;
 import wordSearch.puzzle.Puzzle;
@@ -17,30 +16,10 @@ public class CrosswordBuildingTools {
     private SpaceFinder spaceFinder = new SpaceFinder();
     private HorizontalCrosswordSpaceFinder horizontalSpaceFinder = new HorizontalCrosswordSpaceFinder();
     private VerticalCrosswordSpaceFinder verticalSpaceFinder = new VerticalCrosswordSpaceFinder();
-    //private HorizontalSpaceFinder horizontalSpaceFinder = new HorizontalSpaceFinder();
     HtmlPrintEncoder htmlEncoder = new HtmlPrintEncoder();
     CrosswordFileHandler fileHandler = new CrosswordFileHandler();
     private final int MAX_WIDTH = 81;
 
-
-
-    public void wordSearchUserEntry(Puzzle puzzle) {
-        String word;
-        System.out.println();
-        do {
-            word = myInterface.getAnotherWordFromUser(puzzle.getWordCount());
-            if (!word.equals("")) {
-                if (!word.matches("[ a-zA-Z]+") || word.length() < 2 || word.contains("  ")) {
-                    myInterface.notAWord();
-                } else if (isDuplicate(word, puzzle)) {
-                    myInterface.duplicate();
-                } else {
-                    puzzle.getWordCollection().add(word);
-                    puzzle.incrementWordCount();
-                }
-            }
-        } while (!word.equals(""));
-    }
 
     public boolean isDuplicate(String newWord, Puzzle puzzle) {
         for (String word : puzzle.getWordCollection()) {
@@ -51,79 +30,7 @@ public class CrosswordBuildingTools {
         return false;
     }
 
-    public void removeWords(Puzzle puzzle) {
-        myInterface.displayNumberedWordList(puzzle.getWordCollection());
-        String wordsToRemove = myInterface.chooseWordsToRemove();
-        String[] wordArray = wordsToRemove.split(",");
-
-        List<String> numberStringList = new ArrayList<>();
-        for (String word : wordArray) {
-            String[] numbers = word.split(" ");
-            for (String num : numbers) {
-                numberStringList.add(num);
-            }
-        }
-        List<Integer> numberList = new ArrayList<>();
-        for (int i = 0; i < numberStringList.size(); i++) {
-            try {
-                int removeIndex = Integer.parseInt(numberStringList.get(i));
-                numberList.add(removeIndex);
-            } catch (NumberFormatException e) {
-            }
-        }
-        Collections.sort(numberList);
-        for (int i = numberList.size() - 1; i >= 0; i--) {
-            puzzle.getWordCollection().remove(numberList.get(i) - 1);
-            puzzle.decrementWordCount();
-        }
-        myInterface.displayNumberedWordList(puzzle.getWordCollection());
-    }
-
-    public void setInstructions(Puzzle puzzle) {
-        Instructions instructions = new Instructions();
-        if (puzzle.getWordDirections() == 1) {
-            puzzle.setInstructions(instructions.getInstructions2());
-        }
-        if (puzzle.getWordDirections() == 2) {
-            puzzle.setInstructions(instructions.getInstructions4());
-        }
-        if (puzzle.getWordDirections() == 3) {
-            puzzle.setInstructions(instructions.getInstructions8());
-        }
-    }
-
-    public int longestWord(List<String> wordCollection) {
-        int longestWord = 0;
-        for (String word : wordCollection) {
-            if (word.length() > longestWord) {
-                longestWord = word.length();
-            }
-        }
-        return longestWord;
-    }
-
-    public void getDimensions(CrosswordPuzzle puzzle) {
-        int minimum = longestWord(puzzle.getWordCollection()) + 1;
-        int width = 0;
-        int height = 0;
-        String[] dimensionsArray;
-        do {
-            do {
-                String choice = myInterface.dimensions(minimum);
-                dimensionsArray = choice.split("[x* ]");
-            } while (dimensionsArray.length < 2);
-            try {
-                width = Integer.parseInt(dimensionsArray[0]);
-                height = Integer.parseInt(dimensionsArray[1]);
-            } catch (NumberFormatException e) {
-                myInterface.invalidNumber();
-            }
-        } while (width < minimum && height < minimum);
-        puzzle.setWidth(width);
-        puzzle.setHeight(height);
-    }
-
-    public void createGrid(CrosswordPuzzle puzzle) {
+    public String createGrid(CrosswordPuzzle puzzle) {
         puzzle.populateWordList();
         puzzle.setWordCount(puzzle.getWordList().size());
         CrosswordPuzzle thisPuzzle = buildCrosswordPuzzle(puzzle);
@@ -137,6 +44,7 @@ public class CrosswordBuildingTools {
         System.out.println(thisPuzzle.clueListsToString());
         String fileName = myInterface.enterSavePath();
         fileHandler.saveHtmlCrosswordPuzzle(fileName, thisPuzzle, htmlEncoder);
+        return fileName;
     }
 
     public CrosswordPuzzle buildCrosswordPuzzle(CrosswordPuzzle puzzle) {
@@ -256,15 +164,7 @@ public class CrosswordBuildingTools {
     }
 
     private void printResults(CrosswordPuzzle puzzle) {
-        //puzzle.getWordList().printResults();
         System.out.println(puzzle);
-        //myInterface.printArea(puzzle.getArea());
-        //myInterface.printAddedWordCount(puzzle.getFinalWordList().size(), puzzle.getWordList().size());
-
-//        if (puzzle.getFinalWordList().size() < puzzle.getWordList().size()) {
-//            myInterface.suggestLargerDimensions();
-//            printUnusedWords(puzzle);
-//        }
     }
 
     public void generateCrosswordPuzzle(CrosswordPuzzle puzzle) {
@@ -352,7 +252,6 @@ public class CrosswordBuildingTools {
             return verticalSpaceFinder.writeWordInEmptySpace(word, grid, xy);
         }
     }
-
 
     private void printUnusedWords(Puzzle puzzle) {
         myInterface.unusedWords();

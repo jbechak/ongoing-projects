@@ -13,8 +13,16 @@ public class BlockGenerator {
     int blanks;
 
     public void run() {
-        String difficultyString = myUI.difficultyLevel();
-        int difficulty = Integer.parseInt(difficultyString);
+        int difficulty = 1;
+        do {
+            String difficultyString = myUI.difficultyLevel();
+            try {
+                difficulty = Integer.parseInt(difficultyString);
+            } catch (NumberFormatException e) {
+                myUI.invalidNumber();
+            }
+        } while (difficulty < 1 || difficulty > 10);
+
         blanks = difficulty * 6;
         createBoard();
         board.setLevel(difficulty);
