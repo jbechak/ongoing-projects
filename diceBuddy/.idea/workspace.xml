@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93be9895-4e74-4ec4-bcfc-5c0752f3a627" name="Changes" comment="" />
+    <list default="true" id="0a964dd5-d444-4c29-8324-4617345a4a4d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +13,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
@@ -22,24 +20,23 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2Fy8elFDAJdiDpIzN6xSCvhI2Vm" />
+  <component name="ProjectId" id="2GArHG8TXJ8Fh4RcliI46Km7jxx" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MusicBuddy" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Application.Application (1)">
     <configuration name="Application (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sudoku.game.Application" />
-      <module name="sudoku" />
+      <option name="MAIN_CLASS_NAME" value="diceBuddy.main.Application" />
+      <module name="diceBuddy" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sudoku.game.*" />
+          <option name="PATTERN" value="diceBuddy.main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -48,11 +45,11 @@
       </method>
     </configuration>
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sudoku.Application" />
-      <module name="sudoku" />
+      <option name="MAIN_CLASS_NAME" value="diceRoller.diceSides.main.Application" />
+      <module name="diceBuddy" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sudoku.game.shapes.Column" />
+          <option name="PATTERN" value="diceRoller.diceSides.main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -61,11 +58,11 @@
       </method>
     </configuration>
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sudoku.game.Application" />
-      <module name="sudoku" />
+      <option name="MAIN_CLASS_NAME" value="diceBuddy.main.Application" />
+      <module name="diceBuddy" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sudoku.game.shapes.Column" />
+          <option name="PATTERN" value="diceBuddy.main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -73,25 +70,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Practice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sudoku.practice.Practice" />
-      <module name="sudoku" />
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="diceRoller.main.Application" />
+      <module name="diceRoller" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sudoku.practice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Sudoku" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sudoku.Sudoku" />
-      <module name="sudoku" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sudoku.game.shapes.Column" />
+          <option name="PATTERN" value="diceRoller.odds.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -102,38 +86,40 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application (1)" />
-        <item itemvalue="Application.Practice" />
         <item itemvalue="Application.Application" />
-        <item itemvalue="Application.Sudoku" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="93be9895-4e74-4ec4-bcfc-5c0752f3a627" name="Changes" comment="" />
-      <created>1665453061970</created>
+      <changelist id="0a964dd5-d444-4c29-8324-4617345a4a4d" name="Changes" comment="" />
+      <created>1665842140864</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1665453061970</updated>
+      <updated>1665842140864</updated>
     </task>
     <servers />
   </component>
   <component name="XDebuggerManager">
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="sudoku.blockStructure.BlockColumn" memberName="blockColumn" />
-      </pinned-members>
-    </pin-to-top-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="square.blockSquare" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/sudoku$BlockApplication.ic" NAME="BlockApplication Coverage Results" MODIFIED="1665745641144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>sudoku.blockStructure.*</FILTER>
-    </SUITE>
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/diceBuddy/main/Roller.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/diceBuddy/main/RiskMode.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/diceBuddy/main/Roller.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
