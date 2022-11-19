@@ -34,16 +34,16 @@
             
             <div id="form-title">
                 <label for="title"><h2>WordSearch Title</h2></label>
-                <input type="text" class="title field" id="title" placeholder="Enter title">
+                <input type="text" class="title field" id="puzzle-title" placeholder="Enter title">
             </div>
             <div id="word-directions">
                 <label for="word-directions"><h2>Word Directions</h2></label>
                 <select name="" class = "field" id="direction-choice">
-                    <optgroup>
+                    <!-- <optgroup> -->
                         <option value="1">Words can go horizontally and vertically</option>
                         <option value="2">Words can go horizontally, vertically, and in 2 diagonal directions</option>
                         <option value="3">Words can go horizontally, vertically, diagonally, and backwards in all directions</option>
-                    </optgroup>
+                    <!-- </optgroup> -->
                     
                 </select>   
             </div>
@@ -78,7 +78,7 @@
 
             <div id="last-word">
                 <label for="next-word"></label>
-                <input type="text" class="field" id="gray-word" placeholder="Enter a word">
+                <input type="text" class="field" id="gray-word" placeholder="Enter a word" disabled>
             </div>
             <div id="word-count" class="derived">
                 <h2>Word Count: 0</h2>
@@ -112,20 +112,12 @@
             </a>
             <!-- </section>-->
             
-            <a id="generate" href="wordsearch.html">
+            <div id="generate">
                 <img src="images/icons8-circled-g-100.png" alt="">
-                <h3>Generate</h3>
-                <h3>Puzzle</h3>
-            </a>
-
-            
+                    <h3>Generate</h3>
+                    <h3>Puzzle</h3>
+            </div> 
         </nav>
-        
-
-
     </main>
-    
-    
-    
 </body>
 </html>

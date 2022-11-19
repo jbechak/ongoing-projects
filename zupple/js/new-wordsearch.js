@@ -1,4 +1,22 @@
 let newWord = '';
+let title = 'untitled';
+let width = 10;
+let height = 10;
+let wordDirections = 5;
+let wordCollection = [];
+
+let wordCount = 0;
+
+const apiBaseAddress = 'http://localhost:8080/wordsearch'
+
+const wordSearchDto = {
+    title: '',
+    width: 20,
+    height: 20,
+    wordDirections: 1,
+    wordCollection: []
+};
+
 
 function newUserWord(event) {
     //newWord = document.getElementById('word').value;
@@ -25,27 +43,41 @@ function openNextWordField() {
     const nextWord = document.querySelector('.next-word');
     nextWord.focus();
     nextWord.classList.remove('next-word');
-
-    // let newDiv = document.createElement('div');
-    // newDiv.classList.add('new-word');
-    // const lastWord = document.getElementById('last-word');
-    // lastWord.insertAdjacentElement('beforebegin', newDiv);
-
-    // const label = document.createElement('label');
-    // label.setAttribute('for', 'word');
-    // label.innerText = 'word';
-    // newDiv = document.querySelector('.new-word');
-    // newDiv.appendChild(label);
-
-    // const input = document.createElement('input');
-    // input.setAttribute('type', 'text');
-    // input.classList.add('word');
-    // input.setAttribute('placeholder', 'Enter a word');
-    // newDiv.appendChild(input);
-
-    // newDiv.classList.add('word');
-    // newDiv.classList.remove('new-word');
     
+}
+
+function generatePuzzle() {
+    wordSearchDto.title = document.getElementById('puzzle-title').value;
+    wordSearchDto.wordDirections = document.getElementById('direction-choice').value;
+    wordSearchDto.width = document.getElementById('width').value;
+    wordSearchDto.height = document.getElementById('height').value;
+
+    const words = document.querySelectorAll('.word');
+    for (element of words) {
+        if (element.value != '') {
+            wordSearchDto.wordCollection.push(element.value);
+        }
+    }
+    
+    console.log(wordSearchDto.title);
+    console.log(wordSearchDto.width);
+    console.log(wordSearchDto.height);
+    console.log(wordSearchDto.wordDirections);
+    console.log(wordSearchDto.wordCollection);
+
+    const entity = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(wordSearchDto)
+    };
+    fetch(apiBaseAddress, entity);
+        // .then(response => response.json())
+        // .then(wordSearch => {
+        //     console.log('Success:', wordSearch);
+        // });
+    return false;
 }
 
 
@@ -55,14 +87,19 @@ document.addEventListener('DOMContentLoaded', () => {
         newUserWord(event);
     });
 
-    document.querySelector('form').addEventListener('focus', event => {
-        console.log(event);
-        newUserWord(event);
-    });
+    // document.querySelector('form').addEventListener('focus', event => {
+    //     console.log(event);
+    //     newUserWord(event);
+    // });
 
-    document.querySelector('form').addEventListener('click', event => {
+    // document.querySelector('form').addEventListener('click', event => {
+    //     console.log(event);
+    //     newUserWord(event);
+    // });
+
+    document.getElementById('generate').addEventListener('click', event => {
         console.log(event);
-        newUserWord(event);
+        generatePuzzle(event);
     });
 
     // document.addEventListener('keypress', (e) => {

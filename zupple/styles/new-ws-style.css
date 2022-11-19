@@ -76,14 +76,17 @@ nav a {
     width: 200px;
     height: 200px;
     border-radius: 25%;
+    box-shadow: 5px 10px rgb(134, 97, 85);
     /* margin-left: 15px; */
     margin-top: 20px;
+    padding-top: 15px;
     background-color: rgb(255, 137, 30);
     opacity: 50%;
 }
 
 #generate img {
     width: 100px;
+    margin-left: 50px;
     
 }
 
