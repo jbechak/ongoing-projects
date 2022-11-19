@@ -1,8 +1,8 @@
-header > h1 {
+/* header h1 {
     font-size: 90px;
     margin-top: 10px;
     margin-bottom: 5px;
-}
+} */
 
 #sub-heading {
 
@@ -12,4 +12,8 @@ header > h1 {
 
 #play {
     opacity: 50%;
+}
+
+#open {
+    margin-top: 50px;
 }
