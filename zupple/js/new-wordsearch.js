@@ -17,6 +17,22 @@ const wordSearchDto = {
     wordCollection: []
 };
 
+const wordSearch = {
+    wordSearchId: '',
+    title: '',
+    gridString: '',
+    width: 20,
+    height: 20,
+    wordCollection: [],
+    wordDirections: 1,
+    wordCount: 0,
+    difficulty: '',
+    genre: '',
+    instructions: '',
+    description: '',
+    creator: ''
+}
+
 
 function newUserWord(event) {
     //newWord = document.getElementById('word').value;
@@ -45,6 +61,82 @@ function openNextWordField() {
     nextWord.classList.remove('next-word');
     
 }
+
+function getAll() {
+    fetch(apiBaseAddress)
+        .then(response => response.json())
+        .then(puzzleList => {
+            console.log(puzzleList);
+            puzzleList.forEach(puzzle => {
+                console.log(puzzle.title);
+                console.log('hi');
+                const tmpl = document.getElementById('table-row').content.cloneNode(true);
+                tmpl.getElementById('id').innerText = puzzle.wordSearchId;
+                tmpl.getElementById('titl').innerText = puzzle.title;
+                tmpl.getElementById('diff').innerText = puzzle.difficulty;
+                tmpl.getElementById('wd').innerText = puzzle.wordDirections;
+                tmpl.getElementById('wid').innerText = puzzle.width;
+                tmpl.getElementById('hei').innerText = puzzle.height;
+                tmpl.getElementById('wc').innerText = puzzle.wordCount;
+                tmpl.getElementById('gen').innerText = puzzle.genre;
+                const id = 'p' + puzzle.wordSearchId;
+                tmpl.querySelector('tr').id = id;
+
+                const puzzles = document.getElementById('puzzles');
+                puzzles.appendChild(tmpl);
+
+                document.getElementById(id).addEventListener('click', event => {
+                    console.log(event);
+                    getPuzzle(event, puzzle.wordSearchId);
+                    
+                })
+    
+            });
+        }); 
+}
+
+
+
+function getPuzzle(event, id) {
+    console.log(id);
+    fetch(apiBaseAddress + '/' + id)
+        .then(response => response.json())
+        .then(puzzle => {
+            // console.log(puzzle);
+            wordSearch.wordSearchId = puzzle.wordSearchId;
+            wordSearch.title = puzzle.title;
+            wordSearch.gridString = puzzle.gridString;
+            wordSearch.width = puzzle.width;
+            wordSearch.height = puzzle.height;
+            wordSearch.wordCollection = puzzle.wordCollection;
+            wordSearch.wordDirections = puzzle.wordDirections;
+            wordSearch.wordCount = puzzle.wordCount;
+            wordSearch.difficulty = puzzle.difficulty;
+            wordSearch.genre = puzzle.genre;
+            wordSearch.instructions = puzzle.instructions;
+            wordSearch.description = puzzle.description;
+            wordSearch.creator = puzzle.creator;
+            console.log(wordSearch);
+            printWordSearch();
+        })
+}
+
+function printWordSearch() {
+    const wordSearchRows = wordSearch.gridString.split('\n');
+    console.log(wordSearchRows);
+    wordSearchRows.forEach(row => {
+        const rowArray = row.split('');
+        console.log(rowArray.join(' '));
+        rowWithSpaces = rowArray.join(' ');
+        const newRow = document.getElementById('printPuzzle').content.cloneNode(true);
+        newRow.getElementById('puzzle-row').innerText = rowWithSpaces;
+        const wordSearchTable = document.getElementById('wordSearch')
+        wordSearchTable.appendChild(newRow);
+        
+    });
+    document.getElementById('wordSearch').scrollIntoView();
+}
+
 
 function generatePuzzle() {
     wordSearchDto.title = document.getElementById('puzzle-title').value;
@@ -97,10 +189,27 @@ document.addEventListener('DOMContentLoaded', () => {
     //     newUserWord(event);
     // });
 
-    document.getElementById('generate').addEventListener('click', event => {
+    document.getElementById('open').addEventListener('click', event => {
         console.log(event);
-        generatePuzzle(event);
-    });
+        getAll(event);
+    })
+
+    // document.getElementById('puzzles').addEventListener('click', event => {
+    //     console.log(event);
+    //     getPuzzle(event);
+    // })
+
+    document.getElementById('generate').addEventListener('click', generatePuzzle);
+
+    // document.getElementById('generate').addEventListener('click', event => {
+    //     console.log(event);
+    //     generatePuzzle(event);
+    // });
+
+    
+
+
+
 
     // document.addEventListener('keypress', (e) => {
     //     if (e.key === 'Enter') {

@@ -18,8 +18,12 @@ body {
 }
 
 main {
-display: flex;
+    display: flex;
 
+}
+
+#main-view {
+    display: flex;
 }
 
 
@@ -204,6 +208,45 @@ select {
     color: rgba(0, 0, 0, 0.801);
 }
 
+td {
+    margin-bottom: 30px;
+    text-align: center;
+    color:var(--heading-color);
+}
+
+th {
+    color:var(--heading-color);
+}
+
+
+.title-column {
+    width: 300px;
+}
+
+.diff-column {
+    width: 300px;
+}
+
+#puzzles:hover {
+    cursor: pointer;
+}
+
+.medium-column {
+    width: 80px;
+}
+
+.hide {
+    display: none;
+}
+
+.centered {
+    align-self: center;
+}
+
+#puzzle-row {
+    font-family: monospace;
+    font-size: 25px;
+}
 
 
 /* #form-title h2 {

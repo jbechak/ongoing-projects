@@ -27,10 +27,10 @@ public class JdbcWordSearchDao implements WordSearchDao {
         List<WordSearch> wordSearches = new ArrayList<>();
 
         String sql = "select wordsearch_id, title, description, difficulty, width, height, " +
-                "genre, instructions, grid_path, html_path\n" +
-                "from wordsearch where user_id = ?;";
+                "genre, instructions, grid_path, html_path \n" +
+                "from wordsearch;";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
         while (results.next()) {
             wordSearches.add(mapRowToWordSearch(results));

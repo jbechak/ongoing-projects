@@ -28,9 +28,9 @@
         </section>
         
     </header>
-
+    
     <main>
-        <section id="config">
+        <section id="config" class="hideable">
             
             <div id="form-title">
                 <label for="title"><h2>WordSearch Title</h2></label>
@@ -102,7 +102,7 @@
                 <img src="images/icons8-circled-n-100.png" alt="">
                 <h3>New</h3>
             </a>
-            <a id="open" href="wordsearch.html">
+            <a id="open" href="#puzzles">
                 <img src="images/icons8-circled-o-100.png" alt="">
                 <h3>Open</h3>
             </a>
@@ -119,5 +119,55 @@
             </div> 
         </nav>
     </main>
+    <section class="centered">
+        
+        <table id="puzzles" class="thumb">
+            <tr>
+                <th>Puzzle ID</th>
+                <th class="title-column">Title</th>
+                <th class="diff-column">Difficulty</th>
+                <th class="medium-column">Word<br>Directions</th>
+                <th class="medium-column">Width</th>
+                <th class="medium-column">Height</th>
+                <th class="medium-column">Word<br>Count</th>
+                <th class="medium-column">Genre</th>
+            </tr>
+           
+            <template id="table-row">
+                <tr class="field">
+                    <td id="id"></td>
+                    <td id="titl"></td>
+                    <td id="diff"></td>
+                    <td id="wd"></td>
+                    <td id="wid"></td>
+                    <td id="hei"></td>
+                    <td id="wc"></td>
+                    <td id="gen"></td>
+                </tr>
+            </template>
+            
+        </table>
+    </section>
+
+    <section id="puzzle" class="centered">
+        <table id="wordSearch">
+            <template id ="printPuzzle">
+                <tr>
+                    <td id="puzzle-row"></td>
+                </tr>
+
+            </template>
+
+
+        </table>
+
+
+
+        
+
+
+
+
+    </section>
 </body>
 </html>
