@@ -8,8 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Lemon&family=Love+Ya+Like+A+Sister&family=Permanent+Marker&family=Ribeye&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/wsstyle.css">
+
+<link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/new-ws-style.css">
+    <script src="js/new-wordsearch.js"></script>
 </head>
 <body id="grad">
     <header>
@@ -26,23 +28,144 @@
         </section>
         
     </header>
+    
+    <main>
+        <section id="main-window">
+            <section id="puzzle-creator" class="display-none">
+                <section id="config" class="hideable">
+                            
+                    <div id="form-title">
+                        <label for="title"><h2>WordSearch Title</h2></label>
+                        <input type="text" class="title field" id="puzzle-title" placeholder="Enter title">
+                    </div>
+                    <div id="word-directions">
+                        <label for="word-directions"><h2>Word Directions</h2></label>
+                        <select name="" class = "field" id="direction-choice">
+                            <!-- <optgroup> -->
+                                <option value="1">Words can go horizontally and vertically</option>
+                                <option value="2">Words can go horizontally, vertically, and in 2 diagonal directions</option>
+                                <option value="3">Words can go horizontally, vertically, diagonally, and backwards in all directions</option>
+                            <!-- </optgroup> -->
+                            
+                        </select>   
+                    </div>
+                    <section id="dimensions">
+                        <div id="x-axis">
+                            <label for="width"><h2>Width</h2></label>
+                            <input type="number" class="field" value="20" id="width" placeholder="20">
 
-    <nav id="items">
-        <a id="new"href="wordsearch-new.html">
-            <img src="images/icons8-circled-n-100.png" alt="">
-            <h3>New</h3>
-        </a>
-        <a id="open" href="wordsearch.html">
-            <img src="images/icons8-circled-o-100.png" alt="">
-            <h3>Open</h3>
-        </a>
-        <a id="play" href="wordsearch.html">
-            <img src="images/icons8-circled-p-100.png" alt="">
-            <h3>Play
-                <br>
-                (coming soon)
-            </h3>
-        </a>
-    </nav>
+                        </div>
+                        <div id="y-axis">
+                            <label for="height"><h2>Height</h2></label>
+                            <input type="number" class="field" value="20" id="height" placeholder="20">
+
+                        </div>
+                    </section>
+                        
+                </section>
+
+                <section id="list" class ="hideable">
+                    
+                    <section id="word-list">
+                        <div >
+                            <h2>Word List</h2>
+                        </div>
+                        <div>
+                            <label for="word"></label>
+                            <input type="text" class="word field" placeholder="Enter a word">
+                        </div>
+                    </section>
+                        
+                
+
+                    <div id="last-word">
+                        <label for="next-word"></label>
+                        <input type="text" class="field" id="gray-word" placeholder="Enter a word" disabled>
+                    </div>
+                    <div id="word-count" class="derived">
+                        <h2>Word Count: 0</h2>
+                    </div>
+                    <div id="difficulty" class="derived">
+                        <h2>Level 1 - Very Easy</h2>
+                    </div>
+
+                </section>
+                <template id="new-word">
+                    <div>
+                        <label for="word"></label>
+                        <input type="text" class="next-word word field" placeholder="Enter a word">
+                    </div>
+                </template>
+            </section>
+            <section id="puzzle-opener" class="display-none">
+                    
+                <table id="puzzles" class="thumb">
+                    <tr>
+                        <th>Puzzle ID</th>
+                        <th class="title-column">Title</th>
+                        <th class="diff-column">Difficulty</th>
+                        <th class="medium-column">Word<br>Directions</th>
+                        <th class="medium-column">Width</th>
+                        <th class="medium-column">Height</th>
+                        <th class="medium-column">Word<br>Count</th>
+                        <th class="medium-column">Genre</th>
+                    </tr>
+                
+                    <template id="table-row">
+                        <tr class="field">
+                            <td id="id"></td>
+                            <td id="titl"></td>
+                            <td id="diff"></td>
+                            <td id="wd"></td>
+                            <td id="wid"></td>
+                            <td id="hei"></td>
+                            <td id="wc"></td>
+                            <td id="gen"></td>
+                        </tr>
+                    </template>
+                
+                </table>
+            </section>
+            <section id="puzzle" class="centered">
+                <table id="wordSearch">
+                    
+
+
+                </table>
+            </section>
+        </section>
+        <template id ="printPuzzle">
+            <tr>
+                <td id="puzzle-row"></td>
+            </tr>
+        </template>
+        
+        
+        <nav id="items">
+            <!-- <section id="actions"> -->
+            <a id="new" href="wordsearch-new.html">
+                <img src="images/icons8-circled-n-100.png" alt="">
+                <h3>New</h3>
+            </a>
+            <a id="open" href="#puzzles">
+                <img src="images/icons8-circled-o-100.png" alt="">
+                <h3>Open</h3>
+            </a>
+            <a id="play" href="wordsearch.html">
+                <img src="images/icons8-circled-p-100.png" alt="">
+                <h3>Play</h3>
+            </a>
+            <!-- </section>-->
+            
+            <div id="generate" class="display-none">
+                <img src="images/icons8-circled-g-100.png" alt="">
+                    <h3>Generate</h3>
+                    <h3>Puzzle</h3>
+            </div> 
+        </nav>
+    </main>
+    
+
+    
 </body>
 </html>

@@ -4,8 +4,9 @@ let width = 10;
 let height = 10;
 let wordDirections = 5;
 let wordCollection = [];
-
 let wordCount = 0;
+
+let puzzlesFetched = false;
 
 const apiBaseAddress = 'http://localhost:8080/wordsearch'
 
@@ -35,7 +36,6 @@ const wordSearch = {
 
 
 function newUserWord(event) {
-    //newWord = document.getElementById('word').value;
     newWord = event.target.value;
     console.log(event);
     console.log(event.target);
@@ -62,47 +62,67 @@ function openNextWordField() {
     
 }
 
+function newPuzzle(event) {
+    event.preventDefault()
+    const config = document.getElementById('config');
+    const list = document.getElementById('list');
+    config.classList.add('on-screen');
+    list.classList.add('on-screen');
+
+    showPuzzleCreator();
+    hidePuzzleOpener();
+}
+
 function getAll() {
-    fetch(apiBaseAddress)
-        .then(response => response.json())
-        .then(puzzleList => {
-            console.log(puzzleList);
-            puzzleList.forEach(puzzle => {
-                console.log(puzzle.title);
-                console.log('hi');
-                const tmpl = document.getElementById('table-row').content.cloneNode(true);
-                tmpl.getElementById('id').innerText = puzzle.wordSearchId;
-                tmpl.getElementById('titl').innerText = puzzle.title;
-                tmpl.getElementById('diff').innerText = puzzle.difficulty;
-                tmpl.getElementById('wd').innerText = puzzle.wordDirections;
-                tmpl.getElementById('wid').innerText = puzzle.width;
-                tmpl.getElementById('hei').innerText = puzzle.height;
-                tmpl.getElementById('wc').innerText = puzzle.wordCount;
-                tmpl.getElementById('gen').innerText = puzzle.genre;
-                const id = 'p' + puzzle.wordSearchId;
-                tmpl.querySelector('tr').id = id;
+    if (!puzzlesFetched) {
+        fetch(apiBaseAddress)
+            .then(response => response.json())
+            .then(puzzleList => {
+                console.log(puzzleList);
+                puzzleList.forEach(puzzle => {
+                    console.log(puzzle.title);
+                    console.log('hi');
+                    const tmpl = document.getElementById('table-row').content.cloneNode(true);
+                    tmpl.getElementById('id').innerText = puzzle.wordSearchId;
+                    tmpl.getElementById('titl').innerText = puzzle.title;
+                    tmpl.getElementById('diff').innerText = puzzle.difficulty;
+                    tmpl.getElementById('wd').innerText = puzzle.wordDirections;
+                    tmpl.getElementById('wid').innerText = puzzle.width;
+                    tmpl.getElementById('hei').innerText = puzzle.height;
+                    tmpl.getElementById('wc').innerText = puzzle.wordCount;
+                    tmpl.getElementById('gen').innerText = puzzle.genre;
+                    const id = 'p' + puzzle.wordSearchId;
+                    tmpl.querySelector('tr').id = id;
 
-                const puzzles = document.getElementById('puzzles');
-                puzzles.appendChild(tmpl);
+                    const puzzles = document.getElementById('puzzles');
+                    puzzles.appendChild(tmpl);
 
-                document.getElementById(id).addEventListener('click', event => {
-                    console.log(event);
-                    getPuzzle(event, puzzle.wordSearchId);
-                    
-                })
+                    document.getElementById(id).addEventListener('click', event => {
+                        console.log(event);
+                        getPuzzle(event, puzzle.wordSearchId);
+                        
+                    })
+        
+                });
+            }); 
+    }
     
-            });
-        }); 
+    hidePuzzleCreator();
+    showPuzzleOpener();
+
+    const puzzles = document.getElementById('puzzles');
+    puzzles.classList.add('on-screen');
+    puzzlesFetched = true;
 }
 
 
 
 function getPuzzle(event, id) {
     console.log(id);
+    clearPuzzle();
     fetch(apiBaseAddress + '/' + id)
         .then(response => response.json())
         .then(puzzle => {
-            // console.log(puzzle);
             wordSearch.wordSearchId = puzzle.wordSearchId;
             wordSearch.title = puzzle.title;
             wordSearch.gridString = puzzle.gridString;
@@ -117,8 +137,43 @@ function getPuzzle(event, id) {
             wordSearch.description = puzzle.description;
             wordSearch.creator = puzzle.creator;
             console.log(wordSearch);
+            hidePuzzleOpener();
             printWordSearch();
         })
+}
+
+function clearPuzzle() {
+    const table = document.getElementById('wordSearch');
+    table.textContent = ''; 
+}
+
+function showPuzzleCreator() {
+    const puzzleCreator = document.getElementById('puzzle-creator');
+    puzzleCreator.classList.remove('display-none');
+    puzzleCreator.classList.add('display-flex');
+    document.getElementById('generate').classList.add('display-inline', 'fade-in-button');
+
+}
+
+function showPuzzleOpener() {
+    const puzzleOpener = document.getElementById('puzzle-opener');
+    puzzleOpener.classList.remove('display-none');
+    puzzleOpener.classList.add('display-inline');
+}
+
+function hidePuzzleCreator() {
+    const puzzleCreator = document.getElementById('puzzle-creator');
+    puzzleCreator.classList.remove('display-flex');
+    puzzleCreator.classList.add('display-none');
+    document.getElementById('generate').classList.remove('display-inline');
+    document.getElementById('generate').classList.add('display-none');
+    
+}
+
+function hidePuzzleOpener() {
+    const puzzleOpener = document.getElementById('puzzle-opener');
+    puzzleOpener.classList.remove('display-inline');
+    puzzleOpener.classList.add('display-none');
 }
 
 function printWordSearch() {
@@ -138,7 +193,8 @@ function printWordSearch() {
 }
 
 
-function generatePuzzle() {
+function generatePuzzle(event) {
+    event.preventDefault();
     wordSearchDto.title = document.getElementById('puzzle-title').value;
     wordSearchDto.wordDirections = document.getElementById('direction-choice').value;
     wordSearchDto.width = document.getElementById('width').value;
@@ -169,7 +225,7 @@ function generatePuzzle() {
         // .then(wordSearch => {
         //     console.log('Success:', wordSearch);
         // });
-    return false;
+    
 }
 
 
@@ -179,43 +235,18 @@ document.addEventListener('DOMContentLoaded', () => {
         newUserWord(event);
     });
 
-    // document.querySelector('form').addEventListener('focus', event => {
-    //     console.log(event);
-    //     newUserWord(event);
-    // });
 
-    // document.querySelector('form').addEventListener('click', event => {
-    //     console.log(event);
-    //     newUserWord(event);
-    // });
+    document.getElementById('new').addEventListener('click', event => {
+        console.log(event);
+        newPuzzle(event);
+    });
 
     document.getElementById('open').addEventListener('click', event => {
         console.log(event);
         getAll(event);
-    })
-
-    // document.getElementById('puzzles').addEventListener('click', event => {
-    //     console.log(event);
-    //     getPuzzle(event);
-    // })
+    });
 
     document.getElementById('generate').addEventListener('click', generatePuzzle);
-
-    // document.getElementById('generate').addEventListener('click', event => {
-    //     console.log(event);
-    //     generatePuzzle(event);
-    // });
-
-    
-
-
-
-
-    // document.addEventListener('keypress', (e) => {
-    //     if (e.key === 'Enter') {
-    //         // newWord = '';
-    //         openNextWordField();
-    //     }
 
 
 });
