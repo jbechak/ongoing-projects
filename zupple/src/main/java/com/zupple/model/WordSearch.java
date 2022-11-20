@@ -26,6 +26,7 @@ public class WordSearch {
     private String description = "";
     private String creator = "";
     private String gridPath;
+    private String htmlPath;
 
     private final int FULL_WIDTH = 81;
 //    private Grid grid;
@@ -38,6 +39,8 @@ public class WordSearch {
         this.title = title;
     }
 
+    public WordSearch() {}
+
     public int getWordSearchId() {
         return wordSearchId;
     }
@@ -46,11 +49,19 @@ public class WordSearch {
         this.wordSearchId = wordSearchId;
     }
 
+
+
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
 
-    public WordSearch() {}
+    public String getHtmlPath() {
+        return htmlPath;
+    }
+
+    public void setHtmlPath(String htmlPath) {
+        this.htmlPath = htmlPath;
+    }
 
     public int getWordDirections() {
         return wordDirections;

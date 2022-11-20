@@ -1,5 +1,6 @@
 package com.zupple.main;
 
+import com.zupple.FileHandler;
 import com.zupple.Instructions;
 import com.zupple.model.WordSearch;
 import com.zupple.puzzle.Grid;
@@ -20,6 +21,8 @@ public class BuildingTools {
     private HorizontalSpaceFinder horizontalSpaceFinder = new HorizontalSpaceFinder();
     private DiagonalSpaceFinder diagonalSpaceFinder = new DiagonalSpaceFinder();
     private DiagonalUpSpaceFinder diagonalUpSpaceFinder = new DiagonalUpSpaceFinder();
+    private FileHandler fileHandler = new FileHandler();
+    private final String PATH_PREFIX = "wordsearch-puzzles/ws";
 //    private final String INSTRUCTIONS_1 = "Look through the word search puzzle " +
 //            "and find all of the words from the word list.\nThe words can be " +
 //            "found going from left to right or from top to bottom.";
@@ -167,6 +170,7 @@ public class BuildingTools {
         wordSearch.setGridString(grid.toString());
         wordSearch.setWordCount(wordSearch.getWordList().size());
         wordSearch.createInstructions();
+        wordSearch.setHtmlPath(fileHandler.saveHtmlWordSearch(PATH_PREFIX, wordSearch, grid));
 //        System.out.println(wordSearch.);
     }
 

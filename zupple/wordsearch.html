@@ -35,11 +35,11 @@
                 <section id="config" class="hideable">
                             
                     <div id="form-title">
-                        <label for="title"><h2>WordSearch Title</h2></label>
+                        <label for="title" class="form-heading"><h2>WordSearch Title</h2></label>
                         <input type="text" class="title field" id="puzzle-title" placeholder="Enter title">
                     </div>
                     <div id="word-directions">
-                        <label for="word-directions"><h2>Word Directions</h2></label>
+                        <label for="word-directions" class="form-heading"><h2>Word Directions</h2></label>
                         <select name="" class = "field" id="direction-choice">
                             <!-- <optgroup> -->
                                 <option value="1">Words can go horizontally and vertically</option>
@@ -50,14 +50,15 @@
                         </select>   
                     </div>
                     <section id="dimensions">
+
                         <div id="x-axis">
                             <label for="width"><h2>Width</h2></label>
-                            <input type="number" class="field" value="20" id="width" placeholder="20">
+                            <input type="number" class="field xy" value="15" id="width" placeholder="20">
 
                         </div>
                         <div id="y-axis">
                             <label for="height"><h2>Height</h2></label>
-                            <input type="number" class="field" value="20" id="height" placeholder="20">
+                            <input type="number" class="field xy" value="15" id="height" placeholder="20">
 
                         </div>
                     </section>
@@ -67,7 +68,7 @@
                 <section id="list" class ="hideable">
                     
                     <section id="word-list">
-                        <div >
+                        <div class="form-heading">
                             <h2>Word List</h2>
                         </div>
                         <div>
@@ -127,17 +128,47 @@
                 </table>
             </section>
             <section id="puzzle" class="centered">
-                <table id="wordSearch">
+                <!-- <table id="wordSearch">
                     
 
 
-                </table>
+                </table> -->
+
             </section>
         </section>
-        <template id ="printPuzzle">
+
+        <!-- <section id="arrow">
+            <img src="images/icons8-right-arrow-100.png" alt="">
+
+
+        </section> -->
+        
+
+        <template id ="print-puzzle">
+
+            <a id="print-link" href="" target="_blank">Printable Version</a>
+            <h2 id="puzzle-name" class="text-center"></h2>
+            <h3 id="puzzle-level"></h3>
+            <p id="puzzle-instructions"></p>
+            <table id="puzzle-table" class="centered">
+
+            </table>
+            
+            <h3 id="puzzle-list">List of Words</h3>
+
+        </template>
+
+        <!-- <template id="html-path">
+            
+        </template> -->
+        <template id="row">
             <tr>
                 <td id="puzzle-row"></td>
             </tr>
+        </template>
+
+        <template id="list-of-words">
+            <h4 class="puzzle-word"></h4>
         </template>
         
         

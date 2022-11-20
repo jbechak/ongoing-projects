@@ -55,8 +55,8 @@ public class JdbcWordSearchDao implements WordSearchDao {
     @Override
     public WordSearch createWordSearch(WordSearch wordSearch) {
         String sql = "insert into wordsearch (title, description, difficulty, " +
-                "width, height, genre, instructions, grid_path)" +
-                "values (?, ?, ?, ?,  ?, ?, ?, ?) returning wordsearch_id;";
+                "width, height, genre, instructions, grid_path, html_path )" +
+                "values (?, ?, ?,  ?, ?, ?,  ?, ?, ?) returning wordsearch_id;";
 
         String gridPath = fileHandler.saveAsGrid(wordSearch.getGridString(), PATH_PREFIX);
 
@@ -68,7 +68,8 @@ public class JdbcWordSearchDao implements WordSearchDao {
                 wordSearch.getHeight(),
                 wordSearch.getGenre(),
                 wordSearch.getInstructions(),
-                gridPath);
+                gridPath,
+                wordSearch.getHtmlPath());
 
         createWordCollection(wordSearchId, wordSearch.getWordCollection());
 
@@ -83,7 +84,7 @@ public class JdbcWordSearchDao implements WordSearchDao {
 
         sql = "update wordsearch " +
                 "set title = ?, description = ?, difficulty = ?, " +
-                "width = ?, height = ?, genre = ?, instructions = ?, grid_path = ? " +
+                "width = ?, height = ?, genre = ?, instructions = ?, grid_path = ?, html_path = ? " +
                 "where wordsearch_id = ?;";
 
         jdbcTemplate.update(sql,
@@ -95,6 +96,7 @@ public class JdbcWordSearchDao implements WordSearchDao {
                 wordSearch.getGenre(),
                 wordSearch.getInstructions(),
                 gridPath,
+                wordSearch.getHtmlPath(),
                 wordSearch.getWordSearchId());
 
         updateWordCollection(wordSearch.getWordSearchId(), wordSearch.getWordCollection());
@@ -111,6 +113,7 @@ public class JdbcWordSearchDao implements WordSearchDao {
         wordSearch.setHeight(results.getInt("height"));
         wordSearch.setGenre(results.getString("genre"));
         wordSearch.setInstructions(results.getString("instructions"));
+        wordSearch.setHtmlPath(results.getString("html_path"));
 
         String gridPath = results.getString("grid_path");
         String gridString = fileHandler.getGridFromFile(gridPath);

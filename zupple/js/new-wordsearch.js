@@ -31,7 +31,8 @@ const wordSearch = {
     genre: '',
     instructions: '',
     description: '',
-    creator: ''
+    creator: '',
+    htmlPath: ''
 }
 
 
@@ -100,9 +101,7 @@ function getAll() {
                     document.getElementById(id).addEventListener('click', event => {
                         console.log(event);
                         getPuzzle(event, puzzle.wordSearchId);
-                        
                     })
-        
                 });
             }); 
     }
@@ -136,6 +135,7 @@ function getPuzzle(event, id) {
             wordSearch.instructions = puzzle.instructions;
             wordSearch.description = puzzle.description;
             wordSearch.creator = puzzle.creator;
+            wordSearch.htmlPath = puzzle.htmlPath;
             console.log(wordSearch);
             hidePuzzleOpener();
             printWordSearch();
@@ -143,8 +143,8 @@ function getPuzzle(event, id) {
 }
 
 function clearPuzzle() {
-    const table = document.getElementById('wordSearch');
-    table.textContent = ''; 
+    const puzzle = document.getElementById('puzzle');
+    puzzle.textContent = ''; 
 }
 
 function showPuzzleCreator() {
@@ -178,17 +178,29 @@ function hidePuzzleOpener() {
 
 function printWordSearch() {
     const wordSearchRows = wordSearch.gridString.split('\n');
+    
     console.log(wordSearchRows);
+    
+    const tmpl = document.getElementById('print-puzzle').content.cloneNode(true);
+    tmpl.getElementById('print-link').href = wordSearch.htmlPath;
+    tmpl.getElementById('puzzle-name').innerText = wordSearch.title;
+    tmpl.getElementById('puzzle-level').innerText = wordSearch.difficulty;
+    tmpl.getElementById('puzzle-instructions').innerText = wordSearch.instructions;
+    const wordSearchTable = tmpl.getElementById('puzzle-table')
+
     wordSearchRows.forEach(row => {
         const rowArray = row.split('');
         console.log(rowArray.join(' '));
         rowWithSpaces = rowArray.join(' ');
-        const newRow = document.getElementById('printPuzzle').content.cloneNode(true);
+
+        const newRow = document.getElementById('row').content.cloneNode(true);
         newRow.getElementById('puzzle-row').innerText = rowWithSpaces;
-        const wordSearchTable = document.getElementById('wordSearch')
         wordSearchTable.appendChild(newRow);
-        
     });
+    document.getElementById('puzzle').appendChild(tmpl);
+
+    console.log(tmpl);
+   
     document.getElementById('wordSearch').scrollIntoView();
 }
 
@@ -225,6 +237,7 @@ function generatePuzzle(event) {
         // .then(wordSearch => {
         //     console.log('Success:', wordSearch);
         // });
+        
     
 }
 

@@ -82,8 +82,8 @@ public class EditingTools {
         HtmlEncoder htmlEncoder = new HtmlEncoder();
         HtmlPrintEncoder printEncoder = new HtmlPrintEncoder();
 
-        fileHandler.saveHtmlWordSearch(fileName, puzzle, htmlEncoder);
-        fileHandler.saveHtmlWordSearch(fileName + "-printable", puzzle, printEncoder);
+//        fileHandler.saveHtmlWordSearch(fileName, puzzle, htmlEncoder);
+//        fileHandler.saveHtmlWordSearch(fileName + "-printable", puzzle, printEncoder);
 
         Integer puzzleId = jdbcPuzzleDao.createNewPuzzle(puzzle);
         myInterface.fileSaved(fileName);

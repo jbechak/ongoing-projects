@@ -1,5 +1,6 @@
 package com.zupple;
 
+import com.zupple.model.WordSearch;
 import com.zupple.puzzle.Grid;
 import com.zupple.puzzle.Puzzle;
 
@@ -13,7 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class FileHandler {
+
+    private HtmlPrintEncoder htmlEncoder = new HtmlPrintEncoder();
 
     public String saveAsGrid(String gridString, String pathPrefix) {
         String filePath = pathPrefix + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMdd-hhmmss")) + ".zup";
@@ -136,14 +140,36 @@ public class FileHandler {
         }
     }
 
-    public void saveHtmlWordSearch(String fileName, Puzzle puzzle, HtmlEncoder htmlEncoder) {
-        File outputFile = new File(fileName + ".html");
+    public String saveHtmlWordSearch(String pathPrefix, WordSearch wordSearch, Grid grid) {
+        String filePath = pathPrefix + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMdd-hhmmss")) + ".html";
+        String htmlWordSearch = htmlEncoder.htmlHeader() + htmlEncoder.htmlTitle(wordSearch.getTitle(), wordSearch.getDifficulty()) +
+                htmlEncoder.htmlInstructions(wordSearch.getInstructions()) + htmlEncoder.htmlGrid(grid) +
+                htmlEncoder.htmlWordList(wordSearch.getWordList());
+
+        File outputFile = new File(filePath);
         try (PrintWriter printWriter = new PrintWriter(outputFile)) {
-            printWriter.println(puzzle.toHtml(htmlEncoder));
+            printWriter.println(htmlWordSearch);
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found");
         }
+        return filePath;
     }
+
+//    public void saveHtmlWordSearch(String filePath, Puzzle puzzle, HtmlEncoder htmlEncoder) {
+//        File outputFile = new File(filePath);
+//        try (PrintWriter printWriter = new PrintWriter(outputFile)) {
+//            printWriter.println(puzzle.toHtml(htmlEncoder));
+//        } catch (FileNotFoundException e) {
+//            System.out.println("File Not Found");
+//        }
+//    }
+
+//    public String toHtml(HtmlEncoder htmlEncoder) {
+//        String htmlPuzzle = htmlEncoder.htmlHeader() + htmlEncoder.htmlTitle(title, getDifficulty()) +
+//                htmlEncoder.htmlInstructions(instructions) + htmlEncoder.htmlGrid(grid) +
+//                htmlEncoder.htmlWordList(finalWordList);
+//        return htmlPuzzle;
+//    }
 
     private Puzzle extractGrid(Scanner fileScanner, Puzzle puzzle) {
         Grid grid = new Grid(puzzle.getWidth(), puzzle.getHeight());
