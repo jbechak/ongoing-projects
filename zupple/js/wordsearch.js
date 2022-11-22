@@ -1,10 +1,12 @@
 let newWord = '';
 let title = 'untitled';
-let width = 10;
-let height = 10;
+let width = 2;
+let height = 2;
 let wordDirections = 5;
 let wordCollection = [];
 let wordCount = 0;
+let longest = 2;
+let difficulty = '';
 
 let puzzlesFetched = false;
 
@@ -35,6 +37,85 @@ const wordSearch = {
     htmlPath: ''
 }
 
+function createWordCollection() {
+    wordSearchDto.wordCollection = [];
+    const words = document.querySelectorAll('.word');
+    for (element of words) {
+        if (element.value != '') {
+            wordSearchDto.wordCollection.push(element.value);
+        }
+    }
+}
+
+function updateWordCount() {
+    createWordCollection();
+    wordCount = wordSearchDto.wordCollection.length;
+    console.log(wordCount);
+    document.getElementById('current-count').innerText = 'Word Count: ' + wordCount;
+}
+
+function updateDimensions() {
+    if (width < longest + 1) {
+        width = longest + 1;
+        document.querySelector('#x-axis input').value = width;  
+    }
+    if (height < longest + 1) {
+        height = longest + 1;
+        document.querySelector('#y-axis input').value = height; 
+    }
+    document.querySelector('#x-axis input').min = longest + 1;
+    document.querySelector('#y-axis input').min = longest + 1;
+}
+
+function updateDifficulty() {
+    if (getCredits() >= 8) {
+        difficulty = "Level 5 - Very Difficult";
+    }
+    else if (getCredits() >= 6) {
+        difficulty = "Level 4 - Difficult";
+    }
+    else if (getCredits() >= 3) {
+        difficulty = "Level 3 - Medium";
+    }
+    else if (getCredits() >= 1) {
+        difficulty = "Level 2 - Easy";
+    }
+    else difficulty = "Level 1 - Very Easy";
+
+    document.querySelector('#difficulty > h2').innerText = difficulty;
+}
+
+function getCredits() {
+    let credits = 0;
+    
+    credits += remainingSpaces() / 50;
+    credits += document.getElementById('direction-choice').value * 2 - 2;
+    credits += (wordCount - 1) / 10;
+    return credits;
+}
+
+function remainingSpaces() {
+    let totalSpaces = width * height;
+    let totalLetters = 0;
+    wordSearchDto.wordCollection.forEach(word => totalLetters += word.length);
+    return totalSpaces - totalLetters;
+}
+
+function longestWord() {
+    longest = 2;
+    for (word of wordSearchDto.wordCollection) {
+        word = word.replace(/\s+/g, '');
+        if (word.length > longest) {
+            longest = word.length;
+            console.log(word);
+            console.log(longest);
+        }
+    }
+}
+
+
+
+
 
 function newUserWord(event) {
     newWord = event.target.value;
@@ -47,7 +128,6 @@ function newUserWord(event) {
             openNextWordField();
         }
     });
-
 }
 
 function openNextWordField() {
@@ -60,8 +140,13 @@ function openNextWordField() {
     const nextWord = document.querySelector('.next-word');
     nextWord.focus();
     nextWord.classList.remove('next-word');
-    
+    updateWordCount();
+    longestWord();
+    updateDimensions();
+    updateDifficulty();
 }
+
+
 
 function newPuzzle(event) {
     event.preventDefault()
@@ -145,6 +230,8 @@ function getPuzzle(event, id) {
 function clearPuzzle() {
     const puzzle = document.getElementById('puzzle');
     puzzle.textContent = ''; 
+    const wordList = document.getElementById('puzzle-list');
+    wordList.textContent = '';
 }
 
 function showPuzzleCreator() {
@@ -152,6 +239,7 @@ function showPuzzleCreator() {
     puzzleCreator.classList.remove('display-none');
     puzzleCreator.classList.add('display-flex');
     document.getElementById('generate').classList.add('display-inline', 'fade-in-button');
+    document.getElementById('reset').classList.add('display-inline', 'fade-in-button');
 
 }
 
@@ -167,7 +255,8 @@ function hidePuzzleCreator() {
     puzzleCreator.classList.add('display-none');
     document.getElementById('generate').classList.remove('display-inline');
     document.getElementById('generate').classList.add('display-none');
-    
+    document.getElementById('reset').classList.remove('display-inline');
+    document.getElementById('reset').classList.add('display-none');
 }
 
 function hidePuzzleOpener() {
@@ -181,12 +270,18 @@ function printWordSearch() {
     
     console.log(wordSearchRows);
     
-    const tmpl = document.getElementById('print-puzzle').content.cloneNode(true);
+    let tmpl = document.getElementById('print-puzzle').content.cloneNode(true);
     tmpl.getElementById('print-link').href = wordSearch.htmlPath;
     tmpl.getElementById('puzzle-name').innerText = wordSearch.title;
     tmpl.getElementById('puzzle-level').innerText = wordSearch.difficulty;
     tmpl.getElementById('puzzle-instructions').innerText = wordSearch.instructions;
     const wordSearchTable = tmpl.getElementById('puzzle-table')
+    let fontSize = 'medium-letters';
+    if (wordSearch.width <= 10) {
+        fontSize = 'big-letters';
+    } else if (wordSearch.width > 20) {
+            fontSize = 'small-letters';
+    }
 
     wordSearchRows.forEach(row => {
         const rowArray = row.split('');
@@ -195,15 +290,37 @@ function printWordSearch() {
 
         const newRow = document.getElementById('row').content.cloneNode(true);
         newRow.getElementById('puzzle-row').innerText = rowWithSpaces;
+        newRow.getElementById('puzzle-row').classList.add(fontSize);
         wordSearchTable.appendChild(newRow);
     });
     document.getElementById('puzzle').appendChild(tmpl);
-
     console.log(tmpl);
    
-    document.getElementById('wordSearch').scrollIntoView();
+    tmpl = document.getElementById('list-of-words').content.cloneNode(true);
+    wordSearch.wordCollection.forEach(word => {
+        tempWord = document.getElementById('temp-word').content.cloneNode(true);
+        tempWord.querySelector('.puzzle-word').innerText = word;
+        tmpl.appendChild(tempWord);
+    })
+
+    document.getElementById('puzzle-list').appendChild(tmpl);
+    console.log(tmpl);
 }
 
+
+
+function resetPuzzle() {
+    const entries = document.querySelectorAll('.word-entry');
+    entries.forEach(entry => entry.textContent = '');
+    document.querySelector('.first-word').value = '';
+    document.getElementById('puzzle-title').value = '';
+    document.getElementById('direction-choice').value = '1';
+    width = 1;
+    height = 1;
+    longest = 2;
+    updateWordCount();
+    updateDimensions();
+}
 
 function generatePuzzle(event) {
     event.preventDefault();
@@ -211,13 +328,7 @@ function generatePuzzle(event) {
     wordSearchDto.wordDirections = document.getElementById('direction-choice').value;
     wordSearchDto.width = document.getElementById('width').value;
     wordSearchDto.height = document.getElementById('height').value;
-
-    const words = document.querySelectorAll('.word');
-    for (element of words) {
-        if (element.value != '') {
-            wordSearchDto.wordCollection.push(element.value);
-        }
-    }
+    createWordCollection();
     
     console.log(wordSearchDto.title);
     console.log(wordSearchDto.width);
@@ -249,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    document.getElementById('new').addEventListener('click', event => {
+    document.getElementById('create').addEventListener('click', event => {
         console.log(event);
         newPuzzle(event);
     });
@@ -260,6 +371,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('generate').addEventListener('click', generatePuzzle);
+    document.getElementById('reset').addEventListener('click', resetPuzzle);
+    document.getElementById('word-directions').addEventListener('click', updateDifficulty);
+
 
 
 });
