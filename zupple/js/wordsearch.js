@@ -150,13 +150,19 @@ function openNextWordField() {
 
 function newPuzzle(event) {
     event.preventDefault()
+    // const createElements = document.querySelectorAll('.hideable');
+    // createElements.forEach(item => item.classList.add('on-screen'));
+
     const config = document.getElementById('config');
     const list = document.getElementById('list');
     config.classList.add('on-screen');
     list.classList.add('on-screen');
+    document.getElementById('details').classList.add('fade-in-button');
+
 
     showPuzzleCreator();
     hidePuzzleOpener();
+    hidePuzzle();
 }
 
 function getAll() {
@@ -193,6 +199,7 @@ function getAll() {
     
     hidePuzzleCreator();
     showPuzzleOpener();
+    hidePuzzle();
 
     const puzzles = document.getElementById('puzzles');
     puzzles.classList.add('on-screen');
@@ -265,6 +272,18 @@ function hidePuzzleOpener() {
     puzzleOpener.classList.add('display-none');
 }
 
+function hidePuzzle() {
+    // const puzzle = document.getElementById('puzzle');
+    // puzzle.classList.remove('display-flex');
+    // puzzle.classList.add('display-none');
+
+    const puzzleParts = document.querySelectorAll('.puzzle');
+    puzzleParts.forEach(part => { 
+        part.classList.add('display-none');
+        part.classList.remove('display-flex');
+    });
+}
+
 function printWordSearch() {
     const wordSearchRows = wordSearch.gridString.split('\n');
     
@@ -304,6 +323,7 @@ function printWordSearch() {
     })
 
     document.getElementById('puzzle-list').appendChild(tmpl);
+    document.getElementById('puzzle').classList.add('on-screen');
     console.log(tmpl);
 }
 
@@ -343,13 +363,34 @@ function generatePuzzle(event) {
         },
         body: JSON.stringify(wordSearchDto)
     };
-    fetch(apiBaseAddress, entity);
-        // .then(response => response.json())
-        // .then(wordSearch => {
+    fetch(apiBaseAddress, entity)
+        .then(response => response.json())
+        // .then(puzzle => {
         //     console.log('Success:', wordSearch);
         // });
-        
-    
+
+        // fetch(apiBaseAddress + '/' + id)
+        // .then(response => response.json())
+        .then(puzzle => {
+            wordSearch.wordSearchId = puzzle.wordSearchId;
+            wordSearch.title = puzzle.title;
+            wordSearch.gridString = puzzle.gridString;
+            wordSearch.width = puzzle.width;
+            wordSearch.height = puzzle.height;
+            wordSearch.wordCollection = puzzle.wordCollection;
+            wordSearch.wordDirections = puzzle.wordDirections;
+            wordSearch.wordCount = puzzle.wordCount;
+            wordSearch.difficulty = puzzle.difficulty;
+            wordSearch.genre = puzzle.genre;
+            wordSearch.instructions = puzzle.instructions;
+            wordSearch.description = puzzle.description;
+            wordSearch.creator = puzzle.creator;
+            wordSearch.htmlPath = puzzle.htmlPath;
+            console.log(wordSearch);
+            hidePuzzleCreator();
+            hidePuzzleOpener();
+            printWordSearch();
+        });
 }
 
 

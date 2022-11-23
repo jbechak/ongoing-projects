@@ -176,6 +176,12 @@ h3 {
     flex-grow: 1;
 }
 
+#puzzle-opener td {
+    font-family: Comic Sans MS;
+    font-size: 18px;
+    color: var(--button-text);
+}
+
 #config {
     display: flex;
     flex-direction: column;
@@ -294,21 +300,28 @@ form {
     color: rgba(0, 0, 0, 0.507);
 }
 
-#config h2 {
+.field-heading {
     margin-bottom: 0px;
     color: var(--heading-color);
-}
-
-#word-list h2 {
-    margin-bottom: 0px;
-    color: var(--heading-color);
-    
+    text-align: center;
 }
 
 #list {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+}
+
+#details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    color: var(--heading-color);
+    opacity: 50%;
+}
+
+.unrequired {
+    
 }
 
 select {

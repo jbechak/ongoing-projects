@@ -35,11 +35,11 @@
                 <section id="config" class="hideable">
                             
                     <div id="form-title">
-                        <label for="title" class="form-heading"><h2>WordSearch Title</h2></label>
+                        <label for="title" class="form-heading"><h2 class="field-heading">WordSearch Title</h2></label>
                         <input type="text" class="title field" id="puzzle-title" placeholder="Enter title">
                     </div>
                     <div id="word-directions">
-                        <label for="word-directions" class="form-heading"><h2>Word Directions</h2></label>
+                        <label for="word-directions" class="form-heading"><h2 class="field-heading">Word Directions</h2></label>
                         <select name="" class = "field" id="direction-choice">
                             <!-- <optgroup> -->
                                 <option value="1">Words can go horizontally and vertically</option>
@@ -52,12 +52,12 @@
                     <section id="dimensions">
 
                         <div id="x-axis">
-                            <label for="width"><h2>Width</h2></label>
+                            <label for="width"><h2 class="field-heading">Width</h2></label>
                             <input type="number" class="field xy" value="3" id="width" placeholder="3" min="3" max="40">
 
                         </div>
                         <div id="y-axis">
-                            <label for="height"><h2>Height</h2></label>
+                            <label for="height"><h2 class="field-heading">Height</h2></label>
                             <input type="number" class="field xy" value="3" id="height" placeholder="3" min="3" max="40">
 
                         </div>
@@ -69,7 +69,7 @@
                     
                     <section id="word-list">
                         <div class="form-heading">
-                            <h2>Word List</h2>
+                            <h2 class="field-heading">Word List</h2>
                         </div>
                         <div>
                             <label for="word"></label>
@@ -91,6 +91,30 @@
                     </div>
 
                 </section>
+                <section id="details" class="hideable">
+
+
+                    <!--genre, instructions, description, creator-->
+                    <div id="genre" class="unrequired">
+                        <label for="genre-choice"><h2 class="field-heading">Genre</h2></label>
+                        <input type="text" class="field unrequired" id="genre-choice" placeholder="Enter a genre">
+                    </div>
+                    <div id="description" class="unrequired">
+                        <label for="description-choice"><h2 class="field-heading">Description</h2></label>
+                        <input type="text" class="field unrequired" id="description-choice" placeholder="Enter a description">
+                    </div>
+                    <div id="instructions" class="unrequired">
+                        <label for="instructions-choice"><h2 class="field-heading">Instructions</h2></label>
+                        <input type="text" class="field unrequired" id="instructions-choice">
+                    </div>
+                    <div id="creator" class="unrequired">
+                        <label for="creator-name"><h2 class="field-heading">Creator</h2></label>
+                        <input type="text" class="field unrequired" id="creator-name" placeholder="Enter a creator name">
+                    </div>
+
+                </section>
+
+
                 <template id="new-word">
                     <div class="word-entry">
                         <label for="word"></label>
@@ -98,6 +122,7 @@
                     </div>
                 </template>
             </section>
+            
             <section id="puzzle-opener" class="display-none">
                     
                 <table id="puzzles" class="thumb">
@@ -127,7 +152,7 @@
                 
                 </table>
             </section>
-            <section id="puzzle" class="centered">
+            <section id="puzzle" class="centered hideable">
 
             </section>
         </section>
@@ -141,11 +166,11 @@
 
         <template id ="print-puzzle">
 
-            <a id="print-link" class="field" href="" target="_blank">Open Printable Version</a>
-            <h2 id="puzzle-name" class="text-center comic-sans"></h2>
-            <h3 id="puzzle-level" class="arial"></h3>
-            <p id="puzzle-instructions" class="arial"></p>
-            <table id="puzzle-table" class="centered">
+            <a id="print-link" class="puzzle field" href="" target="_blank">Open Printable Version</a>
+            <h2 id="puzzle-name" class="puzzle text-center comic-sans"></h2>
+            <h3 id="puzzle-level" class="puzzle arial"></h3>
+            <p id="puzzle-instructions" class="puzzle arial"></p>
+            <table id="puzzle-table" class="puzzle centered">
 
             </table>
             
@@ -215,12 +240,12 @@
         
 
         <template id="list-of-words">
-            <h3 id="list-header" class="comic-sans">List of Words</h3>
+            <h3 id="list-header" class="puzzle comic-sans">List of Words</h3>
             
         </template>
 
         <template id="temp-word">
-            <h4 class="puzzle-word puzzle-text medium-letters text-center"></h4>
+            <h4 class="puzzle puzzle-word puzzle-text medium-letters text-center"></h4>
         </template>
 
     </main>
